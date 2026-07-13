@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - StudentManagement</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> *@
+    <link rel="stylesheet" href="~/css/dashboard.css" />
+    <link rel="stylesheet" href="~/StudentManagement.Web.styles.css" asp-append-version="true" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">StudentManagement.Web</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="topbar-strip"></div>
+
+    <!-- HEADER -->
+    <header class="top-header">
+        <div class="logo-section">
+            <img src="~/images/logo.png" class="logo" />
+            <div class="logo-text">
+                <h3>MIS</h3>
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark / light mode">
+                    <i class="bi bi-moon-fill"></i>
+                </button>
+                <span>P1Soft</span>
+            </div>
+        </div>
+
+        <!--Search Box-->
+        <div class="search-box">
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Search here (Ctrl + /) · Ctrl + S for advanced search" />
+        </div>
+
+        <!--Header icons-->
+        <div class="header-icons">
+            <i class="bi bi-person"></i>
+            <i class="bi bi-person-plus"></i>
+            <i class="bi bi-headset accent"></i>
+            <i class="bi bi-chat-square"></i>
+            <i class="bi bi-bell"></i>
+            <div class="avatar">
+                <img src="~/images/user.png" class="profile" />
+                <span class="status-dot"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVBAR -->
+    <nav class="main-navbar">
+        <button class="nav-arrow">‹</button>
+        <ul>
+            <li><a asp-controller="Home" asp-action="Index">🏠 Home</a></li>
+            <li><a href="#"><i class="bi bi-person-badge"></i> PIS <i class="bi bi-caret-down-fill caret"></i></a></li>
+            <li><a href="#"><i class="bi bi-tools"></i> Setup <i class="bi bi-caret-down-fill caret"></i></a></li>
+            <li><a href="#"><i class="bi bi-cash-coin"></i> Payroll <i class="bi bi-caret-down-fill caret"></i></a></li>
+            <li><a href="#"><i class="bi bi-building"></i> School Admin <i class="bi bi-caret-down-fill caret"></i></a></li>
+            <li><a href="#"><i class="bi bi-journal-bookmark"></i> Academics <i class="bi bi-caret-down-fill caret"></i></a></li>
+            <li><a href="#"><i class="bi bi-wallet2"></i> Fees/Billing <i class="bi bi-caret-down-fill caret"></i></a></li>
+            <li><a href="#"><i class="bi bi-book"></i> Library <i class="bi bi-caret-down-fill caret"></i></a></li>
+            <li><a href="#"><i class="bi bi-person-lines-fill"></i> Student Info <i class="bi bi-caret-down-fill caret"></i></a></li>
+            <li><a href="#"><i class="bi bi-chat-dots"></i> Messaging <i class="bi bi-caret-down-fill caret"></i></a></li>
+            <li><a href="#"><i class="bi bi-file-earmark-text"></i> Exam (College) <i class="bi bi-caret-down-fill caret"></i></a></li>
+            <li><a href="#">LMS</a></li>
+            <li><a href="#"><i class="bi bi-bullseye"></i> ECA <i class="bi bi-caret-down-fill caret"></i></a></li>
+            <li><a href="#" class="error"><i class="bi bi-exclamation-triangle"></i> Error</a></li>
+        </ul>
+        <button class="nav-arrow">›</button>
+    </nav>
+
+    <!--Container-->
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!--Footer-->
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 - StudentManagement.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        themeIcon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+        localStorage.setItem('theme', theme);
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        applyTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
