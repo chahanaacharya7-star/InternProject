@@ -2,6 +2,7 @@ wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\logo.png
 wwwroot\images\user.png
+wwwroot\js\dashboard.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -66,6 +67,7 @@ wwwroot\lib\jquery\LICENSE.txt
 wwwroot\css\dashboard.css
 C:\Users\CPN_INFOTECH\source\repos\StudentManagement.Web\StudentManagement.Web\wwwroot\css\site.css
 C:\Users\CPN_INFOTECH\source\repos\StudentManagement.Web\StudentManagement.Web\wwwroot\favicon.ico
+C:\Users\CPN_INFOTECH\source\repos\StudentManagement.Web\StudentManagement.Web\wwwroot\js\dashboard.js
 C:\Users\CPN_INFOTECH\source\repos\StudentManagement.Web\StudentManagement.Web\wwwroot\js\site.js
 C:\Users\CPN_INFOTECH\source\repos\StudentManagement.Web\StudentManagement.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\CPN_INFOTECH\source\repos\StudentManagement.Web\StudentManagement.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

@@ -96,4 +96,6 @@ C:\Users\CPN_INFOTECH\source\repos\StudentManagement.Web\StudentManagement.Web\o
 C:\Users\CPN_INFOTECH\source\repos\StudentManagement.Web\StudentManagement.Web\obj\Debug\net10.0\StudentManagement.Web.pdb
 C:\Users\CPN_INFOTECH\source\repos\StudentManagement.Web\StudentManagement.Web\obj\Debug\net10.0\StudentManagement.Web.genruntimeconfig.cache
 C:\Users\CPN_INFOTECH\source\repos\StudentManagement.Web\StudentManagement.Web\obj\Debug\net10.0\ref\StudentManagement.Web.dll
-C:\Users\CPN_INFOTECH\source\repos\StudentManagement.Web\StudentManagement.Web\obj\Debug\net10.0\compressed\439rob0e3q-{0}-uckvtvkydv-uckvtvkydv.gz
+C:\Users\CPN_INFOTECH\source\repos\StudentManagement.Web\StudentManagement.Web\obj\Debug\net10.0\StudentManagement.Web.sourcelink.json
+C:\Users\CPN_INFOTECH\source\repos\StudentManagement.Web\StudentManagement.Web\obj\Debug\net10.0\compressed\z7o8r1jfwc-{0}-iyphwizvsv-iyphwizvsv.gz
+C:\Users\CPN_INFOTECH\source\repos\StudentManagement.Web\StudentManagement.Web\obj\Debug\net10.0\compressed\439rob0e3q-{0}-wfa7enk8g0-wfa7enk8g0.gz

@@ -97,10 +97,11 @@ body {
     pointer-events: none;
 }
 
-    .theme-toggle:hover {
-        color: var(--accent-purple);
-    }
+.theme-toggle:hover {
+    color: var(--accent-purple);
+}
 
+/* Search Box */
 .search-box {
     flex: 1;
     max-width: 480px;
@@ -108,42 +109,44 @@ body {
     position: relative;
 }
 
-    .search-box input {
-        width: 100%;
-        padding: 9px 16px 9px 40px;
-        border-radius: 20px;
-        border: 1px solid #c7d2fe;
-        font-size: 14px;
-        color: var(--text-main);
-        background: var(--bg-card);
-        outline: none;
-    }
+.search-box input {
+    width: 100%;
+    padding: 9px 16px 9px 40px;
+    border-radius: 20px;
+    border: 1px solid #c7d2fe;
+    font-size: 14px;
+    color: var(--text-main);
+    background: var(--bg-card);
+    outline: none;
+}
 
-    .search-box i {
-        position: absolute;
-        left: 14px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: var(--text-muted);
-        font-size: 15px;
-    }
+.search-box i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 15px;
+}
 
+/* Header Icons */
 .header-icons {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-    .header-icons i {
-        color: var(--text-main);
-        font-size: 19px;
-        cursor: pointer;
-    }
+.header-icons i {
+    color: var(--text-main);
+    font-size: 19px;
+    cursor: pointer;
+}
 
-        .header-icons i.accent {
-            color: var(--accent-purple);
-        }
+.header-icons i.accent {
+    color: var(--accent-purple);
+}
 
+/* Avatar */
 .avatar {
     width: 36px;
     height: 36px;
@@ -151,81 +154,81 @@ body {
     position: relative;
 }
 
-    .avatar .profile {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        object-fit: cover;
-    }
+.avatar .profile {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
-    .avatar .status-dot {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background: #22c55e;
-        border: 2px solid var(--bg-card);
-    }
+.avatar .status-dot {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #22c55e;
+    border: 2px solid var(--bg-card);
+}
 
-/* ===== Main navbar ===== */
+/* Main navbar */
 .main-navbar {
     background: linear-gradient(90deg, var(--purple-deep) 0%, var(--navy-dark) 100%);
     display: flex;
     align-items: center;
     padding: 0 12px;
     height: 48px;
-    overflow: hidden;
+    overflow: visible;
 }
 
-    .main-navbar .nav-arrow {
-        color: #c4b5fd;
-        background: none;
-        border: none;
-        font-size: 16px;
-        padding: 0 8px;
-        cursor: pointer;
-        flex-shrink: 0;
-    }
+.main-navbar .nav-arrow {
+    color: #c4b5fd;
+    background: none;
+    border: none;
+    font-size: 16px;
+    padding: 0 8px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
 
-    .main-navbar ul {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        flex: 1;
-    }
+.main-navbar ul {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    flex: 1;
+}
 
-        .main-navbar ul li a {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: #e5e7eb;
-            font-size: 14px;
-            padding: 6px 14px;
-            white-space: nowrap;
-            text-decoration: none;
-            border-radius: 4px;
-        }
+.main-navbar ul li a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #e5e7eb;
+    font-size: 14px;
+    padding: 6px 14px;
+    white-space: nowrap;
+    text-decoration: none;
+    border-radius: 4px;
+}
 
-            .main-navbar ul li a:hover {
-                background: rgba(255,255,255,0.08);
-            }
+.main-navbar ul li a:hover {
+    background: rgba(255,255,255,0.08);
+}
 
-            .main-navbar ul li a .caret {
-                font-size: 10px;
-                color: #a5b4fc;
-            }
+.main-navbar ul li a .caret {
+    font-size: 10px;
+    color: #a5b4fc;
+}
 
-            .main-navbar ul li a.error {
-                color: #f87171;
-            }
+.main-navbar ul li a.error {
+    color: #f87171;
+}
 
-/* ===== Hero banner ===== */
+/* Hero banner */
 .hero-wrap {
     padding: 18px 24px;
 }
@@ -246,10 +249,10 @@ body {
     font-weight: 600;
 }
 
-    .greeting .user-name {
-        color: var(--gold);
-        font-weight: 700;
-    }
+.greeting .user-name {
+    color: var(--gold);
+    font-weight: 700;
+}
 
 .wave {
     display: inline-block;
@@ -290,6 +293,83 @@ body {
     font-size: 16px;
 }
 
+/* DropDown of PIS */
+.has-dropdown {
+    position: relative;
+}
+
+.mega-dropdown {
+    display: none;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    background: linear-gradient(180deg, var(--purple-deep) 0%, var(--navy-dark) 100%);
+    min-width: 480px;
+    padding: 24px 32px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 20px 40px -12px rgba(0,0,0,0.45);
+    z-index: 1000;
+    gap: 48px;
+}
+
+.mega-dropdown.open {
+    display: flex;
+}
+
+.mega-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 160px;
+    max-height: 480px;
+    overflow-y: auto;
+}
+
+.mega-col-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold, #f5a623);
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.mega-col-header i {
+    background: #1f1440;
+    color: var(--gold, #f5a623);
+    border: 1px solid rgba(245,166,35,0.4);
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.mega-column a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #e5e7eb;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 4px 0;
+}
+
+.mega-column a:hover {
+    color: var(--gold, #f5a623);
+}
+
+.mega-column a i {
+    font-size: 11px;
+    color: #a5b4fc;
+}
+
+
+
+/* Media */
 @media (max-width: 720px) {
     .search-box {
         display: none;

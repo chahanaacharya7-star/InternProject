@@ -13,28 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">StudentManagement.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
+    
     <div class="topbar-strip"></div>
 
     <!-- HEADER -->
@@ -74,20 +53,124 @@
     <nav class="main-navbar">
         <button class="nav-arrow">‹</button>
         <ul>
-            <li><a asp-controller="Home" asp-action="Index">🏠 Home</a></li>
-            <li><a href="#"><i class="bi bi-person-badge"></i> PIS <i class="bi bi-caret-down-fill caret"></i></a></li>
-            <li><a href="#"><i class="bi bi-tools"></i> Setup <i class="bi bi-caret-down-fill caret"></i></a></li>
-            <li><a href="#"><i class="bi bi-cash-coin"></i> Payroll <i class="bi bi-caret-down-fill caret"></i></a></li>
-            <li><a href="#"><i class="bi bi-building"></i> School Admin <i class="bi bi-caret-down-fill caret"></i></a></li>
+            <li><a asp-controller="Home" asp-action="Index"><i class="bi bi-house-door"></i></a></li>
+            <li class="has-dropdown">
+                <a href="#" class="dropdown-trigger" data-dropdown="pis-dropdown">
+                    <i class="bi bi-person-badge"></i> PIS <i class="bi bi-caret-down-fill caret"></i>
+                </a>
+                <!--DropDown-->
+                <!--PIS-->
+                <div class="mega-dropdown" id="pis-dropdown">
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-people-fill"></i>
+                            <span>PIS</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Employee List</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Employee Login</a>
+                    </div>
+
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Attendance</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Attendance</a>
+                    </div>
+                </div>
+            </li>
+
+            <!--Setup-->
+            <li class="has-dropdown">
+                <a href="#" class="dropdown-trigger" data-dropdown="setup-dropdown">
+                    <i class="bi bi-tools"></i> Setup <i class="bi bi-caret-down-fill caret"></i>
+                </a>
+
+                <div class="mega-dropdown" id="setup-dropdown">
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-person"></i>
+                            <span>User &amp; Permission</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> User List</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Roles &amp; Permission</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Mobile Permission</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Roles</a>
+                    </div>
+
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-person"></i>
+                            <span>Organization Setup</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Company Setup</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Organization Setup</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Attendance General Settings</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Legal Entity</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Data Access Group</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Eligibility Profile Setup (PIS)</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Security Profile</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Derived Factor</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Employee Group</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Employee Group Dimension</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Municipality Setup</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Attendance Device Setup</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Other Setup</a>
+                    </div>
+                </div>
+            </li>
+
+            <!--School Admin-->
+            <li class="has-dropdown">
+                <a href="#" class="dropdown-trigger" data-dropdown="schooladmin-dropdown">
+                    <i class="bi bi-building"></i> School Admin <i class="bi bi-caret-down-fill caret"></i>
+                </a>
+
+                <div class="mega-dropdown" id="schooladmin-dropdown">
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-book"></i>
+                            <span>Academic Setup</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Academic Setup</a>
+                    </div>
+
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-calendar3"></i>
+                            <span>Calendar</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> AD Calendar</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> BS Calendar</a>
+                    </div>
+
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-book"></i>
+                            <span>Teacher Allocation</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Assign Class Teacher</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Teacher Subject Allocation</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Batch Subject Allocation</a>
+                    </div>
+
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-bus-front"></i>
+                            <span>Transportation</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Drivers Info</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Bus Stop</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Transport Route</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Vehicle Info</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Student Transport Mapping</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Student Transport Import</a>
+                    </div>
+                </div>
+            </li>
             <li><a href="#"><i class="bi bi-journal-bookmark"></i> Academics <i class="bi bi-caret-down-fill caret"></i></a></li>
             <li><a href="#"><i class="bi bi-wallet2"></i> Fees/Billing <i class="bi bi-caret-down-fill caret"></i></a></li>
-            <li><a href="#"><i class="bi bi-book"></i> Library <i class="bi bi-caret-down-fill caret"></i></a></li>
             <li><a href="#"><i class="bi bi-person-lines-fill"></i> Student Info <i class="bi bi-caret-down-fill caret"></i></a></li>
-            <li><a href="#"><i class="bi bi-chat-dots"></i> Messaging <i class="bi bi-caret-down-fill caret"></i></a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-text"></i> Exam (College) <i class="bi bi-caret-down-fill caret"></i></a></li>
-            <li><a href="#">LMS</a></li>
-            <li><a href="#"><i class="bi bi-bullseye"></i> ECA <i class="bi bi-caret-down-fill caret"></i></a></li>
-            <li><a href="#" class="error"><i class="bi bi-exclamation-triangle"></i> Error</a></li>
         </ul>
         <button class="nav-arrow">›</button>
     </nav>
@@ -106,9 +189,12 @@
         </div>
     </footer>
 
+    <!-- Script -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/dashboard.js" asp-append-version="true"></script>
+
+    <!-- Internal JS -->
     <script>
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = themeToggle.querySelector('i');
