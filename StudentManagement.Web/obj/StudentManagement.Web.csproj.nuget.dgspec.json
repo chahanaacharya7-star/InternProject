@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CPN_INFOTECH\\source\\repos\\StudentManagement.Web\\StudentManagement.Web\\StudentManagement.Web.csproj": {}
+    "C:\\Users\\CPN_INFOTECH\\Project\\InternProject\\StudentManagement.Web\\StudentManagement.Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CPN_INFOTECH\\source\\repos\\StudentManagement.Web\\StudentManagement.Web\\StudentManagement.Web.csproj": {
+    "C:\\Users\\CPN_INFOTECH\\Project\\InternProject\\StudentManagement.Web\\StudentManagement.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CPN_INFOTECH\\source\\repos\\StudentManagement.Web\\StudentManagement.Web\\StudentManagement.Web.csproj",
+        "projectUniqueName": "C:\\Users\\CPN_INFOTECH\\Project\\InternProject\\StudentManagement.Web\\StudentManagement.Web.csproj",
         "projectName": "StudentManagement.Web",
-        "projectPath": "C:\\Users\\CPN_INFOTECH\\source\\repos\\StudentManagement.Web\\StudentManagement.Web\\StudentManagement.Web.csproj",
+        "projectPath": "C:\\Users\\CPN_INFOTECH\\Project\\InternProject\\StudentManagement.Web\\StudentManagement.Web.csproj",
         "packagesPath": "C:\\Users\\CPN_INFOTECH\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CPN_INFOTECH\\source\\repos\\StudentManagement.Web\\StudentManagement.Web\\obj\\",
+        "outputPath": "C:\\Users\\CPN_INFOTECH\\Project\\InternProject\\StudentManagement.Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
