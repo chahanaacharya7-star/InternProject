@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -37,15 +37,25 @@
 
         <!--Header icons-->
         <div class="header-icons">
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <span class="user-role-badge">@User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value</span>
+            }
             <i class="bi bi-person"></i>
             <i class="bi bi-person-plus"></i>
             <i class="bi bi-headset accent"></i>
             <i class="bi bi-chat-square"></i>
             <i class="bi bi-bell"></i>
-            <div class="avatar">
+            <div class="avatar" title="Signed in as: @User.Identity?.Name">
                 <img src="~/images/user.png" class="profile" />
                 <span class="status-dot"></span>
             </div>
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <a asp-controller="Account" asp-action="Logout" class="logout-btn" title="Sign Out">
+                    <i class="bi bi-box-arrow-right" style="color: #ef4444;"></i>
+                </a>
+            }
         </div>
     </header>
 
