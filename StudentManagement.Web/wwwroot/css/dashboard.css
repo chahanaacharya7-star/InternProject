@@ -429,3 +429,31 @@ body {
 .logout-btn i {
     font-size: 18px !important;
 }
+
+
+/* Abishek work */
+/* Grid Layout adjustment specifically for wide mega menus like Fees/Billing */
+.mega-dropdown.mega-dropdown-grid {
+    min-width: 880px;
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px 32px;
+}
+
+.mega-dropdown.mega-dropdown-grid.open {
+    display: grid;
+}
+
+/* Adjust column spacing for grid mode */
+.mega-dropdown-grid .mega-column {
+    min-width: 0;
+    max-height: none;
+}
+
+/* Media query adaptation for smaller screen resolutions */
+@media (max-width: 1024px) {
+    .mega-dropdown.mega-dropdown-grid {
+        min-width: 600px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
