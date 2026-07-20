@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -37,15 +37,25 @@
 
         <!--Header icons-->
         <div class="header-icons">
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <span class="user-role-badge">@User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value</span>
+            }
             <i class="bi bi-person"></i>
             <i class="bi bi-person-plus"></i>
             <i class="bi bi-headset accent"></i>
             <i class="bi bi-chat-square"></i>
             <i class="bi bi-bell"></i>
-            <div class="avatar">
+            <div class="avatar" title="Signed in as: @User.Identity?.Name">
                 <img src="~/images/user.png" class="profile" />
                 <span class="status-dot"></span>
             </div>
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <a asp-controller="Account" asp-action="Logout" class="logout-btn" title="Sign Out">
+                    <i class="bi bi-box-arrow-right" style="color: #ef4444;"></i>
+                </a>
+            }
         </div>
     </header>
 
@@ -169,7 +179,92 @@
                 </div>
             </li>
             <!--Academics-->
-            <li><a href="#"><i class="bi bi-journal-bookmark"></i> Academics <i class="bi bi-caret-down-fill caret"></i></a></li>
+            <li class="has-dropdown">
+                <a href="#" class="dropdown-trigger" data-dropdown="academics-dropdown">
+                    <i class="bi bi-journal-bookmark"></i> Academics <i class="bi bi-caret-down-fill caret"></i>
+                </a>
+
+                <div class="mega-dropdown" id="academics-dropdown">
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-book"></i>
+                            <span>Subjects/Courses</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Subject group</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Subject Unit</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Subject</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Optional Subject Allocation</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Subject Sub Category</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Syllabus (Semester wise)</a>
+                    </div>
+
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-file-earmark-text"></i>
+                            <span>Themetic Evaluation</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Subject Theme</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Grading Period Theme Mapping</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Grade Book (Thematic Evaluation)</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Grade Book (Thematic Evaluation) Learning Goal Wise</a>
+                    </div>
+
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-file-earmark-text"></i>
+                            <span>Exam/ Registration Form Record</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Exam Form Record</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Registration Form Record</a>
+                    </div>
+
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-file-earmark-text"></i>
+                            <span>Grade Book</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Grade Book</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Grade Book (Exam Code)</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Grade Book (Multiple Subject)</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> GradeBook (Cas)</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Grade Book (Sub Category Wise)</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Grade Book Marks Import</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Grade Book (Re Exam)</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> LMS Marks Entry Block</a>
+                    </div>
+
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Attendance</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Student Daily Attendance</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Student Attendance (Medical)</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Grading Period Attendance</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Student Time Wise Attendance</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Send Attendance Notification</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Student Bulk Device Upload</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Student Device Code Import</a>
+                    </div>
+
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-gear"></i>
+                            <span>Setup</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Grading System</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Grading Period</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Homework</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Publish Result</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Result Block</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Assessment Weightage</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Term Weightage</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Min Max Setup</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Assessment Category</a>
+                    </div>
+                </div>
+            </li>
+
             <!--Fees/Billing-->
             <li><a href="#"><i class="bi bi-wallet2"></i> Fees/Billing <i class="bi bi-caret-down-fill caret"></i></a></li>
             <!--Student info-->

@@ -1,4 +1,4 @@
-﻿/* Setting Colours */
+/* Setting Colours */
 :root {
     --navy-dark: #1e2233;
     --purple-deep: #2b1a4a;
@@ -310,6 +310,9 @@ body {
     box-shadow: 0 20px 40px -12px rgba(0,0,0,0.45);
     z-index: 1000;
     gap: 48px;
+    flex-wrap: wrap;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 .mega-dropdown.open {
@@ -385,4 +388,44 @@ body {
         width: 100%;
         justify-content: space-between;
     }
+}
+
+/* User Profile & Logout Header styling */
+.user-role-badge {
+    background: var(--accent-purple);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(108, 43, 217, 0.2);
+}
+
+[data-theme="dark"] .user-role-badge {
+    background: #7c3aed;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+}
+
+.logout-btn {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 50%;
+    background: rgba(239, 68, 68, 0.06);
+    border: 1px solid rgba(239, 68, 68, 0.1);
+    transition: all 0.2s ease-in-out;
+}
+
+.logout-btn:hover {
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.25);
+    transform: scale(1.08);
+}
+
+.logout-btn i {
+    font-size: 18px !important;
 }

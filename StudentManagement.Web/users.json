@@ -1,0 +1,32 @@
+[
+  {
+    "Email": "admin@school.com",
+    "Password": "Admin@123",
+    "Role": "Admin"
+  },
+  {
+    "Email": "teacher@school.com",
+    "Password": "Teacher@123",
+    "Role": "Teacher"
+  },
+  {
+    "Email": "student@school.com",
+    "Password": "Student@123",
+    "Role": "Student"
+  },
+  {
+    "Email": "newteacher@school.com",
+    "Password": "NewTeacher@123",
+    "Role": "Teacher"
+  },
+  {
+    "Email": "Abishek@school.com",
+    "Password": "Abishek@123",
+    "Role": "Student"
+  },
+  {
+    "Email": "chahanaacharya7@gmail.com ",
+    "Password": "@Chahana1",
+    "Role": "Student"
+  }
+]
