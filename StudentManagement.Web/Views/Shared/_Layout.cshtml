@@ -13,7 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
 <body>
-    
+
     <div class="topbar-strip"></div>
 
     <!-- HEADER -->
@@ -76,7 +76,7 @@
                             <i class="bi bi-people-fill"></i>
                             <span>PIS</span>
                         </div>
-                        <a href="#"><i class="bi bi-chevron-double-right"></i> Employee List</a>
+                        <a asp-controller="PIS" asp-action="EmployeeList"><i class="bi bi-chevron-double-right"></i> Employee List</a>
                         <a href="#"><i class="bi bi-chevron-double-right"></i> Employee Login</a>
                     </div>
 
@@ -267,112 +267,112 @@
 
             <!--Fees/Billing-->
             <!-- Fees/Billing Dropdown -->
-<li class="has-dropdown">
-    <a href="#" class="dropdown-trigger" data-dropdown="feesbilling-dropdown">
-        <i class="bi bi-wallet2"></i> Fees/Billing <i class="bi bi-caret-down-fill caret"></i>
-    </a>
+            <li class="has-dropdown">
+                <a href="#" class="dropdown-trigger" data-dropdown="feesbilling-dropdown">
+                    <i class="bi bi-wallet2"></i> Fees/Billing <i class="bi bi-caret-down-fill caret"></i>
+                </a>
 
-    <div class="mega-dropdown mega-dropdown-grid" id="feesbilling-dropdown">
-        <!-- Fee Setup -->
-        <div class="mega-column">
-            <div class="mega-col-header">
-                <i class="bi bi-gear-wide-connected"></i>
-                <span>Fee Setup</span>
-            </div>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Heads</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Rates</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Rate (Individual)</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Optional Fee Mapping</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Invoice Schedule</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Billing Settings</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Attendance Fee Relation</a>
-        </div>
+                <div class="mega-dropdown mega-dropdown-grid" id="feesbilling-dropdown">
+                    <!-- Fee Setup -->
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-gear-wide-connected"></i>
+                            <span>Fee Setup</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Heads</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Rates</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Rate (Individual)</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Optional Fee Mapping</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Invoice Schedule</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Billing Settings</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Attendance Fee Relation</a>
+                    </div>
 
-        <!-- Discount & Fine -->
-        <div class="mega-column">
-            <div class="mega-col-header">
-                <i class="bi bi-percent"></i>
-                <span>Discount & Fine</span>
-            </div>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Fine Setting</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Discount Setting</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Discount Setting (Bulk)</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Discount Copy (Bulk)</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Discount Import (Bulk)</a>
-        </div>
+                    <!-- Discount & Fine -->
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-percent"></i>
+                            <span>Discount & Fine</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Fine Setting</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Discount Setting</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Discount Setting (Bulk)</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Discount Copy (Bulk)</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Discount Import (Bulk)</a>
+                    </div>
 
-        <!-- Fee Invoice -->
-        <div class="mega-column">
-            <div class="mega-col-header">
-                <i class="bi bi-receipt-cutoff"></i>
-                <span>Fee Invoice</span>
-            </div>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Invoice</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Credit Memo</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Credit List</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Credit Invoices</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Misc Fee Assign</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Misc Fee Import</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Invoice Individual</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Print/Void Invoice</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Print Credit Memo</a>
-        </div>
+                    <!-- Fee Invoice -->
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-receipt-cutoff"></i>
+                            <span>Fee Invoice</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Invoice</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Credit Memo</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Credit List</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Credit Invoices</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Misc Fee Assign</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Misc Fee Import</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Invoice Individual</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Print/Void Invoice</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Print Credit Memo</a>
+                    </div>
 
-        <!-- Settlement -->
-        <div class="mega-column">
-            <div class="mega-col-header">
-                <i class="bi bi-credit-card-2-front"></i>
-                <span>Settlement</span>
-            </div>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Payment Refund</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Print/Void Payment Refund</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Credit Note</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Print/Void Credit Note</a>
-        </div>
+                    <!-- Settlement -->
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-credit-card-2-front"></i>
+                            <span>Settlement</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Payment Refund</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Print/Void Payment Refund</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Credit Note</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Print/Void Credit Note</a>
+                    </div>
 
-        <!-- Opening Balance -->
-        <div class="mega-column">
-            <div class="mega-col-header">
-                <i class="bi bi-calculator"></i>
-                <span>Opening Balance</span>
-            </div>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Student Opening Balance</a>
-        </div>
+                    <!-- Opening Balance -->
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-calculator"></i>
+                            <span>Opening Balance</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Student Opening Balance</a>
+                    </div>
 
-        <!-- Discount Group -->
-        <div class="mega-column">
-            <div class="mega-col-header">
-                <i class="bi bi-tags"></i>
-                <span>Discount Group</span>
-            </div>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Discount Group</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Discount Reason</a>
-        </div>
+                    <!-- Discount Group -->
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-tags"></i>
+                            <span>Discount Group</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Discount Group</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Discount Reason</a>
+                    </div>
 
-        <!-- Payments -->
-        <div class="mega-column">
-            <div class="mega-col-header">
-                <i class="bi bi-cash-stack"></i>
-                <span>Payments</span>
-            </div>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Payment</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Chequebook Record</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Payment Import</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Invoice Import</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Payment Outsider</a>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Print/Void Receipt</a>
-        </div>
+                    <!-- Payments -->
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-cash-stack"></i>
+                            <span>Payments</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Payment</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Chequebook Record</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Payment Import</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Fee Invoice Import</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Payment Outsider</a>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Print/Void Receipt</a>
+                    </div>
 
-        <!-- Billing Reports -->
-        <div class="mega-column">
-            <div class="mega-col-header">
-                <i class="bi bi-file-earmark-bar-graph"></i>
-                <span>Billing Reports</span>
-            </div>
-            <a href="#"><i class="bi bi-chevron-double-right"></i> Reports</a>
-        </div>
-    </div>
-</li>
+                    <!-- Billing Reports -->
+                    <div class="mega-column">
+                        <div class="mega-col-header">
+                            <i class="bi bi-file-earmark-bar-graph"></i>
+                            <span>Billing Reports</span>
+                        </div>
+                        <a href="#"><i class="bi bi-chevron-double-right"></i> Reports</a>
+                    </div>
+                </div>
+            </li>
 
             <!--Student info-->
             <li class="has-dropdown">
@@ -463,22 +463,22 @@
 
     <!-- Internal JS -->
     <script>
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('i');
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle.querySelector('i');
 
-        function applyTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        themeIcon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
-        localStorage.setItem('theme', theme);
-        }
+            function applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                themeIcon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+                localStorage.setItem('theme', theme);
+            }
 
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        applyTheme(savedTheme);
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            applyTheme(savedTheme);
 
-        themeToggle.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme');
-        applyTheme(current === 'dark' ? 'light' : 'dark');
-        });
+            themeToggle.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                applyTheme(current === 'dark' ? 'light' : 'dark');
+            });
     </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

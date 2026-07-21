@@ -1,0 +1,34 @@
+[
+  {
+    "Id": 1,
+    "FullName": "Hari Gautam",
+    "Gender": "Male",
+    "Designation": "Admin",
+    "Department": "Administration",
+    "IsActive": true
+  },
+  {
+    "Id": 2,
+    "FullName": "Sita Sharma",
+    "Gender": "Female",
+    "Designation": "Accountant",
+    "Department": "Finance",
+    "IsActive": true
+  },
+  {
+    "Id": 3,
+    "FullName": "Ram Thapa",
+    "Gender": "Male",
+    "Designation": "Teacher",
+    "Department": "Academics",
+    "IsActive": true
+  },
+  {
+    "Id": 4,
+    "FullName": "Gita Koirala",
+    "Gender": "Female",
+    "Designation": "Teacher",
+    "Department": "Academics",
+    "IsActive": false
+  }
+]

@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<StudentManagement.Web.Services.IUserService, StudentManagement.Web.Services.UserService>();
+builder.Services.AddSingleton<StudentManagement.Web.Services.IEmployeeService, StudentManagement.Web.Services.EmployeeService>();
 
 // Register Cookie Authentication services
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

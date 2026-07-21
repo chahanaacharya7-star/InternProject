@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Employee List";
+}
+
+<div class="page-content">
+    <h2 class="page-title">Employee List</h2>
+
+    <div class="stat-cards">
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="stat-label">Total Employee</span>
+                <span class="stat-value">@ViewBag.TotalEmployee</span>
+            </div>
+            <div class="stat-icon icon-purple"><i class="bi bi-person"></i></div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="stat-label">Male Employee</span>
+                <span class="stat-value">@ViewBag.MaleEmployee</span>
+            </div>
+            <div class="stat-icon icon-gold"><i class="bi bi-person-plus"></i></div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="stat-label">Female Employee</span>
+                <span class="stat-value">@ViewBag.FemaleEmployee</span>
+            </div>
+            <div class="stat-icon icon-purple"><i class="bi bi-people"></i></div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="stat-label">Active Employee</span>
+                <span class="stat-value">@ViewBag.ActiveEmployee</span>
+            </div>
+            <div class="stat-icon icon-gold"><i class="bi bi-person-check"></i></div>
+        </div>
+    </div>
+
+    <div class="employee-panel">
+        <div class="employee-illustration">
+            <img src="~/images/AddEmployee.png" alt="Employee" />
+            <div class="add-badge"><i class="bi bi-plus-lg"></i></div>
+        </div>
+
+        <div class="employee-panel-content">
+            <h3>Add or View Employee</h3>
+            <p>
+                To add a new employee to the system, please click the
+                <strong>Add Employee</strong> button. This will lead you through the
+                steps of entering the required information for the new hire.
+            </p>
+            <p>
+                If you need to review or modify the current employee list, select the
+                <strong>View Employee</strong> button. This option allows you to view
+                existing employee records and make any necessary changes.
+            </p>
+
+            <div class="employee-actions">
+                <a href="#" class="btn-primary-solid"><i class="bi bi-plus-lg"></i> Add Employee</a>
+                <a href="#" class="btn-secondary-outline"><i class="bi bi-list-ul"></i> View Employee</a>
+                <a href="#" class="btn-tertiary">Quick Add</a>
+            </div>
+        </div>
+    </div>
+</div>
