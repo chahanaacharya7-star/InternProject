@@ -34,4 +34,29 @@
             document.querySelectorAll('.mega-dropdown.open').forEach(el => el.classList.remove('open'));
         }
     });
+
+    // ===== Employee Login Management: tab switching =====
+    const loginTabs = document.querySelectorAll('.login-tab');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    loginTabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+            loginTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+
+            const targetTab = this.getAttribute('data-tab');
+            tabPanels.forEach(panel => {
+                panel.style.display = (panel.getAttribute('data-tab-panel') === targetTab) ? 'block' : 'none';
+            });
+        });
+    });
+
+    // ===== Employee Login Management: page size buttons =====
+    const pageSizeButtons = document.querySelectorAll('.page-size');
+    pageSizeButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            pageSizeButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
 });

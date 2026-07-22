@@ -22,5 +22,11 @@ namespace StudentManagement.Web.Controllers
             var employees = _employeeService.GetAll();
             return View(employees);
         }
+
+        public IActionResult EmployeeLogin()
+        {
+            var employees = _employeeService.GetAll().Take(2).ToList();
+            return View(employees);
+        }
     }
 }

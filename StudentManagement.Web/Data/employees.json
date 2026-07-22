@@ -5,7 +5,17 @@
     "Gender": "Male",
     "Designation": "Admin",
     "Department": "Administration",
-    "IsActive": true
+    "IsActive": true,
+    "Code": "EMP001",
+    "LegalEntity": "Giga School",
+    "Branch": "Main Branch",
+    "BusinessUnit": "Administration",
+    "Username": "hari.gautam",
+    "Email": "hari.gautam@giga.edu",
+    "DefaultPassword": "Pass@123",
+    "CreatedDate": "2026-01-12",
+    "LastLoginDate": "",
+    "Status": "Not Generated"
   },
   {
     "Id": 2,
@@ -13,7 +23,17 @@
     "Gender": "Female",
     "Designation": "Accountant",
     "Department": "Finance",
-    "IsActive": true
+    "IsActive": true,
+    "Code": "EMP002",
+    "LegalEntity": "Giga School",
+    "Branch": "Main Branch",
+    "BusinessUnit": "Finance",
+    "Username": "sita.sharma",
+    "Email": "sita.sharma@giga.edu",
+    "DefaultPassword": "Pass@456",
+    "CreatedDate": "2026-02-03",
+    "LastLoginDate": "",
+    "Status": "Not Generated"
   },
   {
     "Id": 3,
@@ -21,14 +41,16 @@
     "Gender": "Male",
     "Designation": "Teacher",
     "Department": "Academics",
-    "IsActive": true
-  },
-  {
-    "Id": 4,
-    "FullName": "Gita Koirala",
-    "Gender": "Female",
-    "Designation": "Teacher",
-    "Department": "Academics",
-    "IsActive": false
+    "IsActive": true,
+    "Code": "EMP003",
+    "LegalEntity": "Giga School",
+    "Branch": "Main Branch",
+    "BusinessUnit": "Academics",
+    "Username": "ram.thapa",
+    "Email": "ram.thapa@giga.edu",
+    "DefaultPassword": "Pass@789",
+    "CreatedDate": "2026-01-20",
+    "LastLoginDate": "2026-07-18",
+    "Status": "Generated"
   }
 ]

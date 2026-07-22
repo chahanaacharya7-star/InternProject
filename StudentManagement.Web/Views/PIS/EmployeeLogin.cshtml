@@ -1,0 +1,312 @@
+﻿@model List<StudentManagement.Web.Models.Employee>
+@{
+    ViewData["Title"] = "Employee Login Management";
+}
+
+<div class="page-content page-content-spaced">
+    <div class="login-mgmt-card">
+        <h2 class="login-mgmt-title">Employee Login Management</h2>
+
+        <!-- Filters -->
+        <div class="login-filters">
+            <div class="filter-group">
+                <label>Legal Entity</label>
+                <select class="filter-select">
+                    <option>--Select--</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Employment Status</label>
+                <select class="filter-select">
+                    <option>Active- Payroll Eligible, Active- Payroll Not</option>
+                </select>
+            </div>
+
+            <div class="filter-group filter-search">
+                <label>Search Text</label>
+                <div class="search-with-btn">
+                    <input type="text" placeholder="Search Text" class="filter-input" />
+                    <button class="btn-search">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="login-tabs">
+            <button class="login-tab active" data-tab="not-generated">
+                <i class="bi bi-dash-circle tab-icon-green"></i> Login Not Generated
+            </button>
+            <button class="login-tab" data-tab="generated">
+                <i class="bi bi-bookmark-check tab-icon-gold"></i> Login Generated
+            </button>
+            <button class="login-tab" data-tab="logged-in">
+                <i class="bi bi-person-check tab-icon-green"></i> Logged In
+            </button>
+            <button class="login-tab" data-tab="not-logged-in">
+                <i class="bi bi-person-dash tab-icon-red"></i> Not Logged In
+            </button>
+            <button class="login-tab" data-tab="inactive">
+                <i class="bi bi-person tab-icon-purple"></i> Inactive User
+            </button>
+        </div>
+
+        <!-- Table Panel -->
+        <div class="login-table-panel">
+            <div class="table-toolbar">
+                <button class="btn-toolbar" disabled>Send Login Email</button>
+                <button class="btn-toolbar" disabled>Generate Login(0)</button>
+                <button class="icon-toolbar" title="Refresh"><i class="bi bi-arrow-clockwise"></i></button>
+                <button class="icon-toolbar" title="Export"><i class="bi bi-file-earmark-spreadsheet"></i></button>
+                <div class="table-search">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search..." />
+                </div>
+                <button class="icon-toolbar" title="More"><i class="bi bi-three-dots-vertical"></i></button>
+            </div>
+
+            @{
+                var notGenerated = Model?.Where(e => e.Status == "Not Generated").ToList() ?? new List<StudentManagement.Web.Models.Employee>();
+                var generated = Model?.Where(e => e.Status == "Generated").ToList() ?? new List<StudentManagement.Web.Models.Employee>();
+                var loggedIn = Model?.Where(e => e.Status == "Logged In").ToList() ?? new List<StudentManagement.Web.Models.Employee>();
+                var notLoggedIn = Model?.Where(e => e.Status == "Not Logged In").ToList() ?? new List<StudentManagement.Web.Models.Employee>();
+                var inactive = Model?.Where(e => !e.IsActive).ToList() ?? new List<StudentManagement.Web.Models.Employee>();
+            }
+
+            <!-- Login Not Generated -->
+            <div class="table-scroll tab-panel" data-tab-panel="not-generated">
+                <table class="login-table">
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>Code</th>
+                            <th>Legal Entity</th>
+                            <th>Branch</th>
+                            <th>Business Unit</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Def. Password</th>
+                            <th>Created Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (notGenerated.Count > 0)
+                        {
+                            @foreach (var emp in notGenerated)
+                            {
+                                <tr>
+                                    <td>@emp.FullName</td>
+                                    <td>@emp.Code</td>
+                                    <td>@emp.LegalEntity</td>
+                                    <td>@emp.Branch</td>
+                                    <td>@emp.BusinessUnit</td>
+                                    <td>@emp.Username</td>
+                                    <td>@emp.Email</td>
+                                    <td>@emp.DefaultPassword</td>
+                                    <td>@emp.CreatedDate</td>
+                                    <td><span class="status-pill status-pending">@emp.Status</span></td>
+                                    <td><button class="row-action-btn" title="Generate Login"><i class="bi bi-key"></i></button></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr><td colspan="11" class="no-data-cell">No data</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Login Generated -->
+            <div class="table-scroll tab-panel" data-tab-panel="generated" style="display:none;">
+                <table class="login-table">
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>Code</th>
+                            <th>Legal Entity</th>
+                            <th>Branch</th>
+                            <th>Business Unit</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Def. Password</th>
+                            <th>Created Date</th>
+                            <th>Last Login Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (generated.Count > 0)
+                        {
+                            @foreach (var emp in generated)
+                            {
+                                <tr>
+                                    <td>@emp.FullName</td>
+                                    <td>@emp.Code</td>
+                                    <td>@emp.LegalEntity</td>
+                                    <td>@emp.Branch</td>
+                                    <td>@emp.BusinessUnit</td>
+                                    <td>@emp.Username</td>
+                                    <td>@emp.Email</td>
+                                    <td>@emp.DefaultPassword</td>
+                                    <td>@emp.CreatedDate</td>
+                                    <td>@(string.IsNullOrEmpty(emp.LastLoginDate) ? "-" : emp.LastLoginDate)</td>
+                                    <td><span class="status-pill status-generated">@emp.Status</span></td>
+                                    <td><button class="row-action-btn" title="Resend Login"><i class="bi bi-envelope"></i></button></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr><td colspan="12" class="no-data-cell">No data</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Logged In -->
+            <div class="table-scroll tab-panel" data-tab-panel="logged-in" style="display:none;">
+                <table class="login-table">
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>Code</th>
+                            <th>Legal Entity</th>
+                            <th>Branch</th>
+                            <th>Business Unit</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Last Login Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (loggedIn.Count > 0)
+                        {
+                            @foreach (var emp in loggedIn)
+                            {
+                                <tr>
+                                    <td>@emp.FullName</td>
+                                    <td>@emp.Code</td>
+                                    <td>@emp.LegalEntity</td>
+                                    <td>@emp.Branch</td>
+                                    <td>@emp.BusinessUnit</td>
+                                    <td>@emp.Username</td>
+                                    <td>@emp.Email</td>
+                                    <td>@emp.LastLoginDate</td>
+                                    <td><span class="status-pill status-active">@emp.Status</span></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr><td colspan="9" class="no-data-cell">No data</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Not Logged In -->
+            <div class="table-scroll tab-panel" data-tab-panel="not-logged-in" style="display:none;">
+                <table class="login-table">
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>Code</th>
+                            <th>Legal Entity</th>
+                            <th>Branch</th>
+                            <th>Business Unit</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Created Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (notLoggedIn.Count > 0)
+                        {
+                            @foreach (var emp in notLoggedIn)
+                            {
+                                <tr>
+                                    <td>@emp.FullName</td>
+                                    <td>@emp.Code</td>
+                                    <td>@emp.LegalEntity</td>
+                                    <td>@emp.Branch</td>
+                                    <td>@emp.BusinessUnit</td>
+                                    <td>@emp.Username</td>
+                                    <td>@emp.Email</td>
+                                    <td>@emp.CreatedDate</td>
+                                    <td><span class="status-pill status-warning">@emp.Status</span></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr><td colspan="9" class="no-data-cell">No data</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Inactive User -->
+            <div class="table-scroll tab-panel" data-tab-panel="inactive" style="display:none;">
+                <table class="login-table">
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>Code</th>
+                            <th>Legal Entity</th>
+                            <th>Branch</th>
+                            <th>Business Unit</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (inactive.Count > 0)
+                        {
+                            @foreach (var emp in inactive)
+                            {
+                                <tr>
+                                    <td>@emp.FullName</td>
+                                    <td>@emp.Code</td>
+                                    <td>@emp.LegalEntity</td>
+                                    <td>@emp.Branch</td>
+                                    <td>@emp.BusinessUnit</td>
+                                    <td>@emp.Email</td>
+                                    <td><span class="status-pill status-inactive">Inactive</span></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr><td colspan="7" class="no-data-cell">No data</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="table-pagination">
+                <div class="page-size-options">
+                    <button class="page-size active">10</button>
+                    <button class="page-size">20</button>
+                    <button class="page-size">50</button>
+                    <button class="page-size">100</button>
+                    <button class="page-size">500</button>
+                    <button class="page-size">All</button>
+                </div>
+
+                <div class="page-info">
+                    <span>Page 1 of 1</span>
+                    <button class="page-nav"><i class="bi bi-chevron-left"></i></button>
+                    <button class="page-number active">1</button>
+                    <button class="page-nav"><i class="bi bi-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
