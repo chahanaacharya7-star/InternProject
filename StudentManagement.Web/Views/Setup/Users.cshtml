@@ -1,0 +1,265 @@
+﻿@{
+    ViewData["Title"] = "Users List";
+}
+
+<div class="user-list-container">
+    <!-- Header Title & Action Buttons -->
+    <div class="users-header">
+        <h2>Users List</h2>
+        <div class="header-actions">
+            <button class="btn btn-purple" data-bs-toggle="modal" data-bs-target="#inviteUserModal">
+                <i class="bi bi-person-plus"></i> Invite New
+            </button>
+            <button class="btn btn-purple-dark" data-bs-toggle="modal" data-bs-target="#addUserModal">
+                <i class="bi bi-plus-lg"></i> Add New
+            </button>
+        </div>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+        <div class="filter-group">
+            <label for="roleFilter">ROLE</label>
+            <select id="roleFilter" class="form-control-custom">
+                <option value="ALL">All</option>
+                <option value="ADMIN">Admin</option>
+                <option value="SCHOOL">School</option>
+                <option value="EMPLOYEE">Employee</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Main Card Content -->
+    <div class="card-box">
+        <!-- Tabs -->
+        <div class="tab-header">
+            <button class="tab-btn active"><i class="bi bi-person"></i> Active Users</button>
+            <button class="tab-btn"><i class="bi bi-person-x"></i> InActive Users</button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="table-search-bar">
+            <div class="search-input-wrap">
+                <i class="bi bi-search"></i>
+                <input type="text" id="userSearchInput" placeholder="Search..." />
+            </div>
+        </div>
+
+        <!-- Users Data Table -->
+        <div class="table-responsive">
+            <table class="custom-table" id="usersTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Roles</th>
+                        <th>Email</th>
+                        <th>Employee</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Record 1 -->
+                    <tr>
+                        <td class="user-name">Test Admin</td>
+                        <td>
+                            <div class="badge-group">
+                                <span class="role-pill pill-pink">NB CHHETRI</span>
+                                <span class="role-pill pill-pink">SCHOOL</span>
+                                <span class="role-pill pill-pink">ADMIN</span>
+                            </div>
+                        </td>
+                        <td class="text-muted-custom">testadmin@mailinator.com</td>
+                        <td></td>
+                        <td class="text-end">
+                            <a href="#" class="action-link">Reset Password</a>
+                            <a href="#" class="action-link">Permissions</a>
+                        </td>
+                    </tr>
+
+                    <!-- Record 2 -->
+                    <tr>
+                        <td class="user-name">Santosh Pandey</td>
+                        <td>
+                            <div class="badge-group">
+                                <span class="role-pill pill-blue">EMPLOYEE</span>
+                            </div>
+                        </td>
+                        <td class="text-muted-custom">san.pandeysp84@gmail.com</td>
+                        <td></td>
+                        <td class="text-end">
+                            <a href="#" class="action-link">Reset Password</a>
+                            <a href="#" class="action-link">Permissions</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ==========================================
+     INVITE USER MODAL
+========================================== -->
+<div class="modal fade" id="inviteUserModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content custom-modal-style">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title modal-custom-title">Invite a user</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="inviteUserForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">EMAIL<span class="text-danger">*</span></label>
+                            <input type="email" class="form-control modal-input" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">EMPLOYEE</label>
+                            <select class="form-select modal-input">
+                                <option value="">--Select--</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">FIRSTNAME<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control modal-input" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">LASTNAME<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control modal-input" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">ROLE(S)<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control modal-input" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">BRANCH(ES)</label>
+                            <input type="text" class="form-control modal-input" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">SECURITY PROFILE</label>
+                            <select class="form-select modal-input">
+                                <option value="">--Select--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <button type="submit" class="btn modal-action-btn"><i class="bi bi-person-plus-fill"></i> Invite</button>
+                        <button type="button" class="btn modal-close-btn" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==========================================
+     ADD NEW USER MODAL
+========================================== -->
+<div class="modal fade" id="addUserModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content custom-modal-style">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title modal-custom-title">Create new user</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addUserForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">EMAIL<span class="text-danger">*</span></label>
+                            <input type="email" class="form-control modal-input" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">EMPLOYEE</label>
+                            <select class="form-select modal-input">
+                                <option value="">--Select--</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">FIRSTNAME<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control modal-input" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">LASTNAME<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control modal-input" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">ROLE(S)<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control modal-input" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">BRANCH(ES)</label>
+                            <input type="text" class="form-control modal-input" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">SECURITY PROFILE</label>
+                            <select class="form-select modal-input">
+                                <option value="">--Select--</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">DASHBOARD PREFERENCE</label>
+                            <select class="form-select modal-input">
+                                <option value="Default">Default</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="enableTimeCheck">
+                                <label class="form-check-label modal-label" for="enableTimeCheck">
+                                    ENABLE SPECIFIC TIME FOR ACTIONS?
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">PASSWORD<span class="text-danger">*</span></label>
+                            <input type="password" class="form-control modal-input" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label modal-label">CONFIRM PASSWORD<span class="text-danger">*</span></label>
+                            <input type="password" class="form-control modal-input" required />
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <button type="submit" class="btn modal-action-btn"><i class="bi bi-plus-lg"></i> Create</button>
+                        <button type="button" class="btn modal-close-btn" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('userSearchInput');
+            const roleFilter = document.getElementById('roleFilter');
+            const tableRows = document.querySelectorAll('#usersTable tbody tr');
+
+            function filterUsers() {
+                const query = searchInput.value.toLowerCase().trim();
+                const selectedRole = roleFilter.value;
+
+                tableRows.forEach(row => {
+                    const name = row.querySelector('.user-name').textContent.toLowerCase();
+                    const email = row.querySelector('.text-muted-custom').textContent.toLowerCase();
+                    const rolesText = row.querySelector('.badge-group').textContent.toUpperCase();
+
+                    const matchesSearch = name.includes(query) || email.includes(query);
+                    const matchesRole = (selectedRole === 'ALL') || rolesText.includes(selectedRole);
+
+                    if (matchesSearch && matchesRole) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            }
+
+            if (searchInput) searchInput.addEventListener('input', filterUsers);
+            if (roleFilter) roleFilter.addEventListener('change', filterUsers);
+        });
+    </script>
+}
