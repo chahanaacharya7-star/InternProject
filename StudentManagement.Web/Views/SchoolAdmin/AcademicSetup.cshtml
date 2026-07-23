@@ -1,0 +1,88 @@
+﻿@model List<StudentManagement.Web.Models.AcademicSession>
+@{
+    ViewData["Title"] = "Academic Setup";
+}
+
+<div class="page-content page-content-spaced">
+    <div class="login-mgmt-card">
+
+        <!-- Sub Tabs -->
+        <div class="sub-tabs">
+            <button class="sub-tab active">Academic Session</button>
+            <button class="sub-tab">Exam Year</button>
+            <button class="sub-tab">Program</button>
+            <button class="sub-tab">Batch</button>
+            <button class="sub-tab">Level</button>
+            <button class="sub-tab">Faculty</button>
+            <button class="sub-tab">Section</button>
+            <button class="sub-tab">Semester</button>
+        </div>
+
+        <!-- Header row -->
+        <div class="section-header-row">
+            <h2 class="login-mgmt-title" style="margin-bottom:0;">Academic Session</h2>
+            <button class="btn-add-new"><i class="bi bi-plus-lg"></i> Add New</button>
+        </div>
+
+        <!-- Table toolbar -->
+        <div class="table-toolbar">
+            <button class="icon-toolbar" title="Refresh"><i class="bi bi-arrow-clockwise"></i></button>
+            <div class="table-search" style="margin-left:auto;">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="Search..." />
+            </div>
+            <button class="icon-toolbar" title="More"><i class="bi bi-three-dots-vertical"></i></button>
+        </div>
+
+        <!-- Table -->
+        <div class="table-scroll">
+            <table class="login-table">
+                <thead>
+                    <tr>
+                        <th>Academic Session Name</th>
+                        <th style="text-align:center;">Display Order</th>
+                        <th style="text-align:center;">Status</th>
+                        <th style="text-align:center;">Running?</th>
+                        <th style="text-align:right;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Count > 0)
+                    {
+                        @foreach (var session in Model)
+                        {
+                            <tr>
+                                <td>@session.Name</td>
+                                <td style="text-align:center;">@session.DisplayOrder</td>
+                                <td style="text-align:center;">
+                                    <span class="status-pill status-active-tag">@session.Status</span>
+                                </td>
+                                <td style="text-align:center;">
+                                    @if (session.IsRunning)
+                                    {
+                                        <span class="status-pill status-running">YES</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="status-pill status-not-running">NO</span>
+                                    }
+                                </td>
+                                <td style="text-align:right;">
+                                    <button class="btn-action-dropdown">
+                                        <i class="bi bi-list-ul"></i> Action <i class="bi bi-caret-down-fill"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5" class="no-data-cell">No data</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

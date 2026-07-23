@@ -59,4 +59,14 @@
             this.classList.add('active');
         });
     });
+
+    // ===== Academic Setup: sub-tab switching (visual only for now) =====
+    const subTabs = document.querySelectorAll('.sub-tab');
+    subTabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+            subTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            // Later: swap table content per sub-tab (Exam Year, Program, Batch, etc.)
+        });
+    });
 });
