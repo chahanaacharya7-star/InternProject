@@ -1,0 +1,58 @@
+[
+  {
+    "Id": 1,
+    "SemesterName": "1st Semester",
+    "Remarks": "1st",
+    "Status": "ACTIVE",
+    "ProgramType": "Multi Yearly Program"
+  },
+  {
+    "Id": 2,
+    "SemesterName": "None",
+    "Remarks": "",
+    "Status": "ACTIVE",
+    "ProgramType": "Multi Yearly Program"
+  },
+  {
+    "Id": 3,
+    "SemesterName": "Non",
+    "Remarks": "",
+    "Status": "ACTIVE",
+    "ProgramType": "Multi Yearly Program"
+  },
+  {
+    "Id": 4,
+    "SemesterName": "k xa semester",
+    "Remarks": "asdasdasdasd",
+    "Status": "INACTIVE",
+    "ProgramType": "Multi Yearly Program"
+  },
+  {
+    "Id": 5,
+    "SemesterName": "k xa semester",
+    "Remarks": "",
+    "Status": "ACTIVE",
+    "ProgramType": "Multi Yearly Program"
+  },
+  {
+    "Id": 6,
+    "SemesterName": "1st Year",
+    "Remarks": "",
+    "Status": "ACTIVE",
+    "ProgramType": "Multi Yearly Program"
+  },
+  {
+    "Id": 7,
+    "SemesterName": "2nd Year",
+    "Remarks": "",
+    "Status": "ACTIVE",
+    "ProgramType": "Multi Yearly Program"
+  },
+  {
+    "Id": 8,
+    "SemesterName": "3rd Year",
+    "Remarks": "",
+    "Status": "ACTIVE",
+    "ProgramType": "Multi Yearly Program"
+  }
+]

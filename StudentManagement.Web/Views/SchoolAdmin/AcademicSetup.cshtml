@@ -1,4 +1,4 @@
-﻿@model List<StudentManagement.Web.Models.AcademicSession>
+﻿@model StudentManagement.Web.Models.AcademicSetupViewModel
 @{
     ViewData["Title"] = "Academic Setup";
 }
@@ -6,83 +6,359 @@
 <div class="page-content page-content-spaced">
     <div class="login-mgmt-card">
 
-        <!-- Sub Tabs -->
         <div class="sub-tabs">
-            <button class="sub-tab active">Academic Session</button>
-            <button class="sub-tab">Exam Year</button>
-            <button class="sub-tab">Program</button>
-            <button class="sub-tab">Batch</button>
-            <button class="sub-tab">Level</button>
-            <button class="sub-tab">Faculty</button>
-            <button class="sub-tab">Section</button>
-            <button class="sub-tab">Semester</button>
+            <button type="button" class="sub-tab active" data-subtab="academic-session">Academic Session</button>
+            <button type="button" class="sub-tab" data-subtab="exam-year">Exam Year</button>
+            <button type="button" class="sub-tab" data-subtab="program">Program</button>
+            <button type="button" class="sub-tab" data-subtab="batch">Batch</button>
+            <button type="button" class="sub-tab" data-subtab="level">Level</button>
+            <button type="button" class="sub-tab" data-subtab="faculty">Faculty</button>
+            <button type="button" class="sub-tab" data-subtab="section">Section</button>
+            <button type="button" class="sub-tab" data-subtab="semester">Semester</button>
         </div>
 
-        <!-- Header row -->
-        <div class="section-header-row">
-            <h2 class="login-mgmt-title" style="margin-bottom:0;">Academic Session</h2>
-            <button class="btn-add-new"><i class="bi bi-plus-lg"></i> Add New</button>
-        </div>
-
-        <!-- Table toolbar -->
-        <div class="table-toolbar">
-            <button class="icon-toolbar" title="Refresh"><i class="bi bi-arrow-clockwise"></i></button>
-            <div class="table-search" style="margin-left:auto;">
-                <i class="bi bi-search"></i>
-                <input type="text" placeholder="Search..." />
+        <!-- Academic Session -->
+        <div class="subtab-panel" data-subtab-panel="academic-session">
+            <div class="section-header-row">
+                <h2 class="login-mgmt-title" style="margin-bottom:0;">Academic Session</h2>
+                <button type="button" class="btn-add-new"><i class="bi bi-plus-lg"></i> Add New</button>
             </div>
-            <button class="icon-toolbar" title="More"><i class="bi bi-three-dots-vertical"></i></button>
+            <div class="table-toolbar">
+                <button type="button" class="icon-toolbar"><i class="bi bi-arrow-clockwise"></i></button>
+                <div class="table-search" style="margin-left:auto;"><i class="bi bi-search"></i><input type="text" placeholder="Search..." /></div>
+                <button type="button" class="icon-toolbar"><i class="bi bi-three-dots-vertical"></i></button>
+            </div>
+            <div class="table-scroll">
+                <table class="login-table">
+                    <thead><tr><th>Academic Session Name</th><th style="text-align:center;">Display Order</th><th style="text-align:center;">Status</th><th style="text-align:center;">Running?</th><th style="text-align:right;">Action</th></tr></thead>
+                    <tbody>
+                        @if (Model.AcademicSessions.Count > 0)
+                        {
+                            @foreach (var s in Model.AcademicSessions)
+                            {
+                                <tr>
+                                    <td>@s.Name</td>
+                                    <td style="text-align:center;">@s.DisplayOrder</td>
+                                    <td style="text-align:center;"><span class="status-pill status-active-tag">@s.Status</span></td>
+                                    <td style="text-align:center;">
+                                        @if (s.IsRunning)
+                                        {
+                                            <span class="status-pill status-running">YES</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="status-pill status-not-running">NO</span>
+                                        }
+                                    </td>
+                                    <td style="text-align:right;"><button type="button" class="btn-action-dropdown"><i class="bi bi-list-ul"></i> Action <i class="bi bi-caret-down-fill"></i></button></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr><td colspan="5" class="no-data-cell">No data</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        <!-- Table -->
-        <div class="table-scroll">
-            <table class="login-table">
-                <thead>
-                    <tr>
-                        <th>Academic Session Name</th>
-                        <th style="text-align:center;">Display Order</th>
-                        <th style="text-align:center;">Status</th>
-                        <th style="text-align:center;">Running?</th>
-                        <th style="text-align:right;">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model != null && Model.Count > 0)
-                    {
-                        @foreach (var session in Model)
+        <!-- Exam Year -->
+        <div class="subtab-panel" data-subtab-panel="exam-year" style="display:none;">
+            <div class="section-header-row">
+                <h2 class="login-mgmt-title" style="margin-bottom:0;">Exam Year</h2>
+                <button type="button" class="btn-add-new"><i class="bi bi-plus-lg"></i> Add New</button>
+            </div>
+            <div class="table-toolbar">
+                <button type="button" class="icon-toolbar"><i class="bi bi-arrow-clockwise"></i></button>
+                <div class="table-search" style="margin-left:auto;"><i class="bi bi-search"></i><input type="text" placeholder="Search..." /></div>
+                <button type="button" class="icon-toolbar"><i class="bi bi-three-dots-vertical"></i></button>
+            </div>
+            <div class="table-scroll">
+                <table class="login-table">
+                    <thead><tr><th>Display Name</th><th style="text-align:right;">Year</th><th style="text-align:right;">Action</th></tr></thead>
+                    <tbody>
+                        @if (Model.ExamYears.Count > 0)
                         {
-                            <tr>
-                                <td>@session.Name</td>
-                                <td style="text-align:center;">@session.DisplayOrder</td>
-                                <td style="text-align:center;">
-                                    <span class="status-pill status-active-tag">@session.Status</span>
-                                </td>
-                                <td style="text-align:center;">
-                                    @if (session.IsRunning)
-                                    {
-                                        <span class="status-pill status-running">YES</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="status-pill status-not-running">NO</span>
-                                    }
-                                </td>
-                                <td style="text-align:right;">
-                                    <button class="btn-action-dropdown">
-                                        <i class="bi bi-list-ul"></i> Action <i class="bi bi-caret-down-fill"></i>
-                                    </button>
-                                </td>
-                            </tr>
+                            @foreach (var y in Model.ExamYears)
+                            {
+                                <tr>
+                                    <td>@y.DisplayName</td>
+                                    <td style="text-align:right;">@y.Year</td>
+                                    <td style="text-align:right;"><button type="button" class="btn-action-dropdown"><i class="bi bi-list-ul"></i> Action <i class="bi bi-caret-down-fill"></i></button></td>
+                                </tr>
+                            }
                         }
-                    }
-                    else
-                    {
-                        <tr>
-                            <td colspan="5" class="no-data-cell">No data</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                        else
+                        {
+                            <tr><td colspan="3" class="no-data-cell">No data</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
+
+        <!-- Program -->
+        <div class="subtab-panel" data-subtab-panel="program" style="display:none;">
+            <div class="section-header-row">
+                <h2 class="login-mgmt-title" style="margin-bottom:0;">Program</h2>
+                <button type="button" class="btn-add-new"><i class="bi bi-plus-lg"></i> Add New</button>
+            </div>
+            <div class="table-toolbar">
+                <button type="button" class="icon-toolbar"><i class="bi bi-arrow-clockwise"></i></button>
+                <div class="table-search" style="margin-left:auto;"><i class="bi bi-search"></i><input type="text" placeholder="Search..." /></div>
+                <button type="button" class="icon-toolbar"><i class="bi bi-three-dots-vertical"></i></button>
+            </div>
+            <div class="table-scroll">
+                <table class="login-table">
+                    <thead>
+                        <tr>
+                            <th>Program Name</th>
+                            <th>Program Code</th>
+                            <th>Student Limit</th>
+                            <th>Program Type</th>
+                            <th>Data Access Group</th>
+                            <th>Level</th>
+                            <th>Faculty</th>
+                            <th>Academic Incharge</th>
+                            <th>Status</th>
+                            <th>Display Order</th>
+                            <th style="text-align:right;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Programs.Count > 0)
+                        {
+                            @foreach (var p in Model.Programs)
+                            {
+                                <tr>
+                                    <td>@p.ProgramName</td>
+                                    <td>@p.ProgramCode</td>
+                                    <td>@(p.StudentLimit?.ToString() ?? "")</td>
+                                    <td>@p.ProgramType</td>
+                                    <td>@p.DataAccessGroup</td>
+                                    <td>@p.Level</td>
+                                    <td>@p.Faculty</td>
+                                    <td>@p.AcademicIncharge</td>
+                                    <td><span class="status-pill status-active-tag">@p.Status</span></td>
+                                    <td>@p.DisplayOrder</td>
+                                    <td style="text-align:right;"><button type="button" class="btn-action-dropdown"><i class="bi bi-list-ul"></i> Action <i class="bi bi-caret-down-fill"></i></button></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr><td colspan="11" class="no-data-cell">No data</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Batch -->
+        <div class="subtab-panel" data-subtab-panel="batch" style="display:none;">
+            <div class="section-header-row">
+                <h2 class="login-mgmt-title" style="margin-bottom:0;">Batch</h2>
+                <button type="button" class="btn-add-new"><i class="bi bi-plus-lg"></i> Add New</button>
+            </div>
+            <div class="table-toolbar">
+                <button type="button" class="icon-toolbar"><i class="bi bi-arrow-clockwise"></i></button>
+                <div class="table-search" style="margin-left:auto;"><i class="bi bi-search"></i><input type="text" placeholder="Search..." /></div>
+                <button type="button" class="icon-toolbar"><i class="bi bi-three-dots-vertical"></i></button>
+            </div>
+            <div class="table-scroll">
+                <table class="login-table">
+                    <thead><tr><th>Program Name</th><th>Batch Name</th><th>Academic Session</th><th>Grading System</th><th>Status</th><th>Hidden From Teacher?</th><th style="text-align:right;">Action</th></tr></thead>
+                    <tbody>
+                        @if (Model.Batches.Count > 0)
+                        {
+                            @foreach (var b in Model.Batches)
+                            {
+                                <tr>
+                                    <td>@b.ProgramName</td>
+                                    <td>@b.BatchName</td>
+                                    <td>@b.AcademicSession</td>
+                                    <td>@b.GradingSystem</td>
+                                    <td><span class="status-pill status-active-tag">@b.Status</span></td>
+                                    <td>
+                                        @if (b.HiddenFromTeacher)
+                                        {
+                                            <span class="status-pill status-running">YES</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="status-pill status-not-running">NO</span>
+                                        }
+                                    </td>
+                                    <td style="text-align:right;"><button type="button" class="btn-action-dropdown"><i class="bi bi-list-ul"></i> Action <i class="bi bi-caret-down-fill"></i></button></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr><td colspan="7" class="no-data-cell">No data</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Level -->
+        <div class="subtab-panel" data-subtab-panel="level" style="display:none;">
+            <div class="section-header-row">
+                <h2 class="login-mgmt-title" style="margin-bottom:0;">Level</h2>
+                <button type="button" class="btn-add-new"><i class="bi bi-plus-lg"></i> Add New</button>
+            </div>
+            <div class="table-toolbar">
+                <button type="button" class="icon-toolbar"><i class="bi bi-arrow-clockwise"></i></button>
+                <div class="table-search" style="margin-left:auto;"><i class="bi bi-search"></i><input type="text" placeholder="Search..." /></div>
+                <button type="button" class="icon-toolbar"><i class="bi bi-three-dots-vertical"></i></button>
+            </div>
+            <div class="table-scroll">
+                <table class="login-table">
+                    <thead><tr><th>Level Name</th><th style="text-align:right;">Level Order</th><th>Remarks</th><th>Status</th><th style="text-align:right;">Action</th></tr></thead>
+                    <tbody>
+                        @if (Model.Levels.Count > 0)
+                        {
+                            @foreach (var l in Model.Levels)
+                            {
+                                <tr>
+                                    <td>@l.LevelName</td>
+                                    <td style="text-align:right;">@l.LevelOrder</td>
+                                    <td>@l.Remarks</td>
+                                    <td><span class="status-pill status-active-tag">@l.Status</span></td>
+                                    <td style="text-align:right;"><button type="button" class="btn-action-dropdown"><i class="bi bi-list-ul"></i> Action <i class="bi bi-caret-down-fill"></i></button></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr><td colspan="5" class="no-data-cell">No data</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Faculty -->
+        <div class="subtab-panel" data-subtab-panel="faculty" style="display:none;">
+            <div class="section-header-row">
+                <h2 class="login-mgmt-title" style="margin-bottom:0;">Faculty</h2>
+                <button type="button" class="btn-add-new"><i class="bi bi-plus-lg"></i> Add New</button>
+            </div>
+            <div class="table-toolbar">
+                <button type="button" class="icon-toolbar"><i class="bi bi-arrow-clockwise"></i></button>
+                <div class="table-search" style="margin-left:auto;"><i class="bi bi-search"></i><input type="text" placeholder="Search..." /></div>
+                <button type="button" class="icon-toolbar"><i class="bi bi-three-dots-vertical"></i></button>
+            </div>
+            <div class="table-scroll">
+                <table class="login-table">
+                    <thead><tr><th>Faculty Name</th><th>Remarks</th><th>Status</th><th style="text-align:right;">Action</th></tr></thead>
+                    <tbody>
+                        @if (Model.Faculties.Count > 0)
+                        {
+                            @foreach (var f in Model.Faculties)
+                            {
+                                <tr>
+                                    <td>@f.FacultyName</td>
+                                    <td>@f.Remarks</td>
+                                    <td><span class="status-pill status-active-tag">@f.Status</span></td>
+                                    <td style="text-align:right;"><button type="button" class="btn-action-dropdown"><i class="bi bi-list-ul"></i> Action <i class="bi bi-caret-down-fill"></i></button></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr><td colspan="4" class="no-data-cell">No data</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section -->
+        <div class="subtab-panel" data-subtab-panel="section" style="display:none;">
+            <div class="section-header-row">
+                <h2 class="login-mgmt-title" style="margin-bottom:0;">Section</h2>
+                <button type="button" class="btn-add-new"><i class="bi bi-plus-lg"></i> Add New</button>
+            </div>
+            <div class="table-toolbar">
+                <button type="button" class="icon-toolbar"><i class="bi bi-arrow-clockwise"></i></button>
+                <div class="table-search" style="margin-left:auto;"><i class="bi bi-search"></i><input type="text" placeholder="Search..." /></div>
+                <button type="button" class="icon-toolbar"><i class="bi bi-three-dots-vertical"></i></button>
+            </div>
+            <div class="table-scroll">
+                <table class="login-table">
+                    <thead><tr><th>Section Name</th><th>Remarks</th><th>Status</th><th style="text-align:right;">Action</th></tr></thead>
+                    <tbody>
+                        @if (Model.Sections.Count > 0)
+                        {
+                            @foreach (var s in Model.Sections)
+                            {
+                                <tr>
+                                    <td>@s.SectionName</td>
+                                    <td>@s.Remarks</td>
+                                    <td><span class="status-pill status-active-tag">@s.Status</span></td>
+                                    <td style="text-align:right;"><button type="button" class="btn-action-dropdown"><i class="bi bi-list-ul"></i> Action <i class="bi bi-caret-down-fill"></i></button></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr><td colspan="4" class="no-data-cell">No data</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Semester -->
+        <div class="subtab-panel" data-subtab-panel="semester" style="display:none;">
+            <div class="section-header-row">
+                <h2 class="login-mgmt-title" style="margin-bottom:0;">Semester</h2>
+                <button type="button" class="btn-add-new"><i class="bi bi-plus-lg"></i> Add New</button>
+            </div>
+            <div class="table-toolbar">
+                <button type="button" class="icon-toolbar"><i class="bi bi-arrow-clockwise"></i></button>
+                <div class="table-search" style="margin-left:auto;"><i class="bi bi-search"></i><input type="text" placeholder="Search..." /></div>
+                <button type="button" class="icon-toolbar"><i class="bi bi-three-dots-vertical"></i></button>
+            </div>
+            <div class="table-scroll">
+                <table class="login-table">
+                    <thead><tr><th>Semester Name</th><th>Remarks</th><th>Status</th><th style="text-align:right;">Action</th></tr></thead>
+                    <tbody>
+                        @if (Model.Semesters.Count > 0)
+                        {
+                            <tr class="group-header-row">
+                                <td colspan="4"><i class="bi bi-chevron-down"></i> Program Type: @Model.Semesters.First().ProgramType (Continues on the next page)</td>
+                            </tr>
+                            @foreach (var sem in Model.Semesters)
+                            {
+                                <tr>
+                                    <td>@sem.SemesterName</td>
+                                    <td>@sem.Remarks</td>
+                                    <td>
+                                        @if (sem.Status == "ACTIVE")
+                                        {
+                                            <span class="status-pill status-active-tag">ACTIVE</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="status-pill status-not-running">INACTIVE</span>
+                                        }
+                                    </td>
+                                    <td style="text-align:right;"><button type="button" class="btn-action-dropdown"><i class="bi bi-list-ul"></i> Action <i class="bi bi-caret-down-fill"></i></button></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr><td colspan="4" class="no-data-cell">No data</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </div>
 </div>

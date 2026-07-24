@@ -1,0 +1,56 @@
+[
+  {
+    "Id": 1,
+    "SectionName": "81MM-CSM",
+    "Remarks": "",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 2,
+    "SectionName": "A",
+    "Remarks": "",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 3,
+    "SectionName": "Alpha",
+    "Remarks": "a",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 4,
+    "SectionName": "Annapurna",
+    "Remarks": "test",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 5,
+    "SectionName": "B",
+    "Remarks": "",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 6,
+    "SectionName": "BBS LEVEL A",
+    "Remarks": "Student having 60-70 are eligible for this section",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 7,
+    "SectionName": "BIBEK",
+    "Remarks": "",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 8,
+    "SectionName": "BlueA",
+    "Remarks": "",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 9,
+    "SectionName": "Dell",
+    "Remarks": "",
+    "Status": "ACTIVE"
+  }
+]

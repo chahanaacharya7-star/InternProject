@@ -1367,3 +1367,10 @@ body {
     .btn-action-dropdown:hover {
         background: rgba(108, 43, 217, 0.08);
     }
+
+.group-header-row td {
+    background: rgba(108, 43, 217, 0.04);
+    font-weight: 600;
+    color: var(--text-main);
+    padding: 10px 16px;
+}

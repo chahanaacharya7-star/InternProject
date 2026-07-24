@@ -1,0 +1,58 @@
+[
+  {
+    "Id": 1,
+    "LevelName": "General",
+    "LevelOrder": 0,
+    "Remarks": "General",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 2,
+    "LevelName": "BBS BIBEK",
+    "LevelOrder": 0,
+    "Remarks": "",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 3,
+    "LevelName": "+2",
+    "LevelOrder": 0,
+    "Remarks": "",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 4,
+    "LevelName": "INVESTMENT",
+    "LevelOrder": 1,
+    "Remarks": "THIS IS AN INVESTMENT LEVEL. ONE OF THE MAIN COMPONENT OF SUBJECT FOR THE STUDENT OF BUSINESS STUDIES WHO ARE WILLING TO BE THE INVESTOR.",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 5,
+    "LevelName": "CORPORATE FINANCE",
+    "LevelOrder": 1,
+    "Remarks": "THIS SUBJECT CONTAINS THE FEASIBLE STUDY OF WORKING PRINCIPLE OF FINANCIAL INSTITUTION (BANK, FINANCE, MICRO-FINANCE) IN NEPAL",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 6,
+    "LevelName": "RSP",
+    "LevelOrder": 1,
+    "Remarks": "Politics",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 7,
+    "LevelName": "School Level",
+    "LevelOrder": 2,
+    "Remarks": "",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 8,
+    "LevelName": "Bachelors Level",
+    "LevelOrder": 3,
+    "Remarks": "",
+    "Status": "ACTIVE"
+  }
+]

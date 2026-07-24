@@ -1,0 +1,80 @@
+[
+  {
+    "Id": 1,
+    "ProgramName": "MBBS",
+    "ProgramCode": "103",
+    "StudentLimit": 24,
+    "ProgramType": "Semester Program",
+    "DataAccessGroup": "Giga Infosoft",
+    "Level": "General",
+    "Faculty": "Science",
+    "AcademicIncharge": "Kabita Thapa",
+    "Status": "ACTIVE",
+    "DisplayOrder": 1
+  },
+  {
+    "Id": 2,
+    "ProgramName": "Bachelors of Hospitality Management",
+    "ProgramCode": "BHM",
+    "StudentLimit": null,
+    "ProgramType": "Semester Program",
+    "DataAccessGroup": "Common",
+    "Level": "General",
+    "Faculty": "Management",
+    "AcademicIncharge": "",
+    "Status": "ACTIVE",
+    "DisplayOrder": 2
+  },
+  {
+    "Id": 3,
+    "ProgramName": "itahari 1",
+    "ProgramCode": "1001",
+    "StudentLimit": 15,
+    "ProgramType": "Semester Program",
+    "DataAccessGroup": "Educational Institutes",
+    "Level": "General",
+    "Faculty": "BSC.CSIT",
+    "AcademicIncharge": "",
+    "Status": "ACTIVE",
+    "DisplayOrder": 2
+  },
+  {
+    "Id": 4,
+    "ProgramName": "itahari 2",
+    "ProgramCode": "1002",
+    "StudentLimit": 20,
+    "ProgramType": "Semester Program",
+    "DataAccessGroup": "Educational Institutes",
+    "Level": "General",
+    "Faculty": "BSC.CSIT",
+    "AcademicIncharge": "",
+    "Status": "ACTIVE",
+    "DisplayOrder": 2
+  },
+  {
+    "Id": 5,
+    "ProgramName": "itahari 3",
+    "ProgramCode": "1003",
+    "StudentLimit": 30,
+    "ProgramType": "Semester Program",
+    "DataAccessGroup": "Butwal",
+    "Level": "General",
+    "Faculty": "BACHELOR IN BUSINESS STUDIES",
+    "AcademicIncharge": "Aayushi Rai",
+    "Status": "ACTIVE",
+    "DisplayOrder": 2
+  },
+  {
+    "Id": 6,
+    "ProgramName": "multitasking agency",
+    "ProgramCode": "002",
+    "StudentLimit": 12,
+    "ProgramType": "Semester Program",
+    "DataAccessGroup": "Educational Institutes",
+    "Level": "General",
+    "Faculty": "Science",
+    "AcademicIncharge": "",
+    "Status": "ACTIVE",
+    "DisplayOrder": 122
+  }
+]

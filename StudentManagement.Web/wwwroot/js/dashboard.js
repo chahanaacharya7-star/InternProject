@@ -12,7 +12,6 @@
                 return;
             }
 
-            // close any other open dropdowns
             document.querySelectorAll('.mega-dropdown.open').forEach(el => {
                 if (el.id !== targetId) el.classList.remove('open');
             });
@@ -21,14 +20,12 @@
         });
     });
 
-    // close dropdown when clicking a real link inside it (so it doesn't stay open after navigating)
     document.querySelectorAll('.mega-dropdown a').forEach(link => {
         link.addEventListener('click', function () {
             document.querySelectorAll('.mega-dropdown.open').forEach(el => el.classList.remove('open'));
         });
     });
 
-    // close dropdown when clicking outside
     document.addEventListener('click', function (e) {
         if (!e.target.closest('.has-dropdown')) {
             document.querySelectorAll('.mega-dropdown.open').forEach(el => el.classList.remove('open'));
@@ -60,13 +57,19 @@
         });
     });
 
-    // ===== Academic Setup: sub-tab switching (visual only for now) =====
+    // ===== Academic Setup: sub-tab switching (now actually swaps panels) =====
     const subTabs = document.querySelectorAll('.sub-tab');
+    const subtabPanels = document.querySelectorAll('.subtab-panel');
+
     subTabs.forEach(tab => {
         tab.addEventListener('click', function () {
             subTabs.forEach(t => t.classList.remove('active'));
             this.classList.add('active');
-            // Later: swap table content per sub-tab (Exam Year, Program, Batch, etc.)
+
+            const target = this.getAttribute('data-subtab');
+            subtabPanels.forEach(panel => {
+                panel.style.display = (panel.getAttribute('data-subtab-panel') === target) ? 'block' : 'none';
+            });
         });
     });
 });

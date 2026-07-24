@@ -1,0 +1,56 @@
+[
+  {
+    "Id": 1,
+    "FacultyName": "BACHELOR IN BUSINESS STUDIES",
+    "Remarks": "THIS SUBJECT IS FOR THOSE WHOSE INTEREST IS IN BUSINESS SECTOR. FUTURE BUSINESSMAN $ INVESTORS!!",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 2,
+    "FacultyName": "BCA",
+    "Remarks": "",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 3,
+    "FacultyName": "BSC.CSIT",
+    "Remarks": "make your dream alive",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 4,
+    "FacultyName": "BSC.CSIT(2083)",
+    "Remarks": "",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 5,
+    "FacultyName": "Computer Science (CS)",
+    "Remarks": "CS - 101",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 6,
+    "FacultyName": "Education",
+    "Remarks": "",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 7,
+    "FacultyName": "Education",
+    "Remarks": "",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 8,
+    "FacultyName": "Education",
+    "Remarks": "",
+    "Status": "ACTIVE"
+  },
+  {
+    "Id": 9,
+    "FacultyName": "General",
+    "Remarks": "",
+    "Status": "ACTIVE"
+  }
+]

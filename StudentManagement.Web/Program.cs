@@ -7,6 +7,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<StudentManagement.Web.Services.IUserService, StudentManagement.Web.Services.UserService>();
 builder.Services.AddSingleton<StudentManagement.Web.Services.IEmployeeService, StudentManagement.Web.Services.EmployeeService>();
 builder.Services.AddSingleton<StudentManagement.Web.Services.IAcademicSessionService, StudentManagement.Web.Services.AcademicSessionService>();
+builder.Services.AddSingleton<StudentManagement.Web.Services.IAcademicSetupService, StudentManagement.Web.Services.AcademicSetupService>();
 
 // Register Cookie Authentication services
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

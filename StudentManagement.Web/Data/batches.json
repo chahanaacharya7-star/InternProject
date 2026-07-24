@@ -1,0 +1,74 @@
+[
+  {
+    "Id": 1,
+    "ProgramName": "Four",
+    "BatchName": "1999 Batch",
+    "AcademicSession": "1999",
+    "GradingSystem": "Test grade system",
+    "Status": "ACTIVE",
+    "HiddenFromTeacher": false
+  },
+  {
+    "Id": 2,
+    "ProgramName": "Five",
+    "BatchName": "1999 Batch",
+    "AcademicSession": "1999",
+    "GradingSystem": "Test grade system",
+    "Status": "ACTIVE",
+    "HiddenFromTeacher": false
+  },
+  {
+    "Id": 3,
+    "ProgramName": "Six",
+    "BatchName": "1999 Batch",
+    "AcademicSession": "1999",
+    "GradingSystem": "Test grade system",
+    "Status": "ACTIVE",
+    "HiddenFromTeacher": false
+  },
+  {
+    "Id": 4,
+    "ProgramName": "Seven",
+    "BatchName": "1999 Batch",
+    "AcademicSession": "1999",
+    "GradingSystem": "Test grade system",
+    "Status": "ACTIVE",
+    "HiddenFromTeacher": false
+  },
+  {
+    "Id": 5,
+    "ProgramName": "Eight",
+    "BatchName": "1999 Batch",
+    "AcademicSession": "1999",
+    "GradingSystem": "Test grade system",
+    "Status": "ACTIVE",
+    "HiddenFromTeacher": false
+  },
+  {
+    "Id": 6,
+    "ProgramName": "Eight",
+    "BatchName": "1999 Batch",
+    "AcademicSession": "1999",
+    "GradingSystem": "Test grade system",
+    "Status": "ACTIVE",
+    "HiddenFromTeacher": true
+  },
+  {
+    "Id": 7,
+    "ProgramName": "Nine",
+    "BatchName": "1999 Batch",
+    "AcademicSession": "1999",
+    "GradingSystem": "Test grade system",
+    "Status": "ACTIVE",
+    "HiddenFromTeacher": false
+  },
+  {
+    "Id": 8,
+    "ProgramName": "Ten",
+    "BatchName": "1999 Batch",
+    "AcademicSession": "1999",
+    "GradingSystem": "Test grade system",
+    "Status": "ACTIVE",
+    "HiddenFromTeacher": false
+  }
+]
