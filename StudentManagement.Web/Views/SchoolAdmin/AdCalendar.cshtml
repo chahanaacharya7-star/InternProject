@@ -1,0 +1,130 @@
+﻿@{
+    ViewData["Title"] = "AD Calendar";
+}
+
+<div class="page-content page-content-spaced">
+    <div class="calendar-layout">
+
+        <div class="calendar-sidebar">
+            <div class="filter-group">
+                <label>Legal Entity</label>
+                <select class="filter-select">
+                    <option>--Select--</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Calendar Type</label>
+                <select class="filter-select">
+                    <option>Calendar Type 1</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn-add-new" style="width:100%; justify-content:center; margin-top:8px;">
+                <i class="bi bi-plus-lg"></i> Add New Event
+            </button>
+        </div>
+
+        <div class="calendar-main">
+            <div class="calendar-toolbar">
+                <div class="calendar-nav">
+                    <button type="button" id="calPrev" class="cal-nav-btn"><i class="bi bi-chevron-left"></i></button>
+                    <button type="button" id="calNext" class="cal-nav-btn"><i class="bi bi-chevron-right"></i></button>
+                    <button type="button" id="calToday" class="cal-today-btn">today</button>
+                </div>
+
+                <h2 id="calTitle" class="calendar-title"></h2>
+
+                <div class="calendar-view-toggle">
+                    <button type="button" class="cal-view-btn active" data-view="month">month</button>
+                    <button type="button" class="cal-view-btn" data-view="week">week</button>
+                    <button type="button" class="cal-view-btn" data-view="day">day</button>
+                </div>
+            </div>
+
+            <div class="calendar-grid-header">
+                <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+            </div>
+
+            <div id="calendarGrid" class="calendar-grid"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calTitle = document.getElementById('calTitle');
+            const calendarGrid = document.getElementById('calendarGrid');
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+            let currentDate = new Date();
+
+            function renderCalendar(date) {
+                const year = date.getFullYear();
+                const month = date.getMonth();
+
+                calTitle.textContent = `${monthNames[month]} ${year}`;
+
+                const firstDayOfMonth = new Date(year, month, 1);
+                const lastDayOfMonth = new Date(year, month + 1, 0);
+                const startWeekday = firstDayOfMonth.getDay();
+                const daysInMonth = lastDayOfMonth.getDate();
+                const prevMonthLastDate = new Date(year, month, 0).getDate();
+
+                const today = new Date();
+                const isCurrentMonth = today.getFullYear() === year && today.getMonth() === month;
+
+                let cellsHtml = '';
+                let totalCells = Math.ceil((startWeekday + daysInMonth) / 7) * 7;
+
+                for (let i = 0; i < totalCells; i++) {
+                    const dayNum = i - startWeekday + 1;
+                    let dayLabel, otherMonthClass = '';
+
+                    if (dayNum < 1) {
+                        dayLabel = prevMonthLastDate + dayNum;
+                        otherMonthClass = 'cal-other-month';
+                    } else if (dayNum > daysInMonth) {
+                        dayLabel = dayNum - daysInMonth;
+                        otherMonthClass = 'cal-other-month';
+                    } else {
+                        dayLabel = dayNum;
+                    }
+
+                    const isToday = isCurrentMonth && dayNum === today.getDate() && otherMonthClass === '';
+
+                    cellsHtml += `<div class="cal-cell ${otherMonthClass} ${isToday ? 'cal-today' : ''}">
+                        <span class="cal-day-num">${dayLabel}</span>
+                    </div>`;
+                }
+
+                calendarGrid.innerHTML = cellsHtml;
+            }
+
+            document.getElementById('calPrev').addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                renderCalendar(currentDate);
+            });
+
+            document.getElementById('calNext').addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                renderCalendar(currentDate);
+            });
+
+            document.getElementById('calToday').addEventListener('click', () => {
+                currentDate = new Date();
+                renderCalendar(currentDate);
+            });
+
+            document.querySelectorAll('.cal-view-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.cal-view-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            renderCalendar(currentDate);
+        });
+    </script>
+}

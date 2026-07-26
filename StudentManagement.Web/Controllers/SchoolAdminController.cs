@@ -15,7 +15,7 @@ namespace StudentManagement.Web.Controllers
             _academicSetupService = academicSetupService;
         }
 
-        public IActionResult AcademicSetup()
+        public IActionResult AcademicSetup(string tab = "academic-session")
         {
             var vm = new AcademicSetupViewModel
             {
@@ -28,7 +28,14 @@ namespace StudentManagement.Web.Controllers
                 Sections = _academicSetupService.GetSections(),
                 Semesters = _academicSetupService.GetSemesters()
             };
+
+            ViewBag.ActiveTab = tab;
             return View(vm);
+        }
+
+        public IActionResult AdCalendar()
+        {
+            return View();
         }
     }
 }
