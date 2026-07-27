@@ -1,0 +1,339 @@
+﻿@{
+    ViewData["Title"] = "BS Calendar";
+}
+
+<div class="page-content page-content-spaced">
+    <div class="calendar-layout">
+
+        <div class="calendar-sidebar">
+            <div class="filter-group">
+                <label>Legal Entity</label>
+                <select class="filter-select">
+                    <option>--Select--</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Calendar Type</label>
+                <select class="filter-select">
+                    <option>Calendar Type 1</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn-add-new" id="openEventModalBtn" style="width:100%; justify-content:center; margin-top:8px;">
+                <i class="bi bi-plus-lg"></i> Add New Event
+            </button>
+        </div>
+
+        <div class="calendar-main">
+            <div class="calendar-toolbar">
+                <select id="bsYearSelect" class="filter-select" style="width:110px;"></select>
+
+                <button type="button" id="bsPrev" class="cal-nav-btn"><i class="bi bi-chevron-left"></i></button>
+
+                <select id="bsMonthSelect" class="filter-select" style="width:180px;"></select>
+
+                <button type="button" id="bsNext" class="cal-nav-btn"><i class="bi bi-chevron-right"></i></button>
+            </div>
+
+            <div class="calendar-grid-header bs-grid-header">
+                <div>आइतवार<br><span>SUNDAY</span></div>
+                <div>सोमवार<br><span>MONDAY</span></div>
+                <div>मंगलवार<br><span>TUESDAY</span></div>
+                <div>बुधवार<br><span>WEDNESDAY</span></div>
+                <div>बिहीवार<br><span>THURSDAY</span></div>
+                <div>शुक्रवार<br><span>FRIDAY</span></div>
+                <div>शनिवार<br><span>SATURDAY</span></div>
+            </div>
+
+            <div id="bsCalendarGrid" class="calendar-grid bs-calendar-grid"></div>
+        </div>
+    </div>
+</div>
+
+<!-- New Event Modal (BS date fields) -->
+<div id="newEventModal" class="event-modal-overlay" style="display:none;">
+    <div class="event-modal-box">
+        <div class="event-modal-header">
+            <h3>New Event</h3>
+            <button type="button" class="event-modal-close" id="closeEventModalX"><i class="bi bi-x-lg"></i></button>
+        </div>
+
+        <div class="event-modal-body">
+            <div class="event-form-group">
+                <label>EVENT</label>
+                <input type="text" id="eventTitle" class="event-form-input" />
+            </div>
+
+            <div class="event-form-group">
+                <label>DESCRIPTION</label>
+                <textarea id="eventDescription" class="event-form-textarea" rows="3"></textarea>
+            </div>
+
+            <div class="event-form-row">
+                <div class="event-form-group">
+                    <label>START DATE (BS)<span class="required-star">*</span></label>
+                    <input type="text" id="eventStartDateBs" class="event-form-input" placeholder="YYYY-MM-DD" readonly />
+                </div>
+                <div class="event-form-group">
+                    <label>END DATE (BS)<span class="required-star">*</span></label>
+                    <input type="text" id="eventEndDateBs" class="event-form-input" placeholder="YYYY-MM-DD" readonly />
+                </div>
+            </div>
+
+            <label class="event-checkbox-label">
+                <input type="checkbox" id="notifyCheckbox" />
+                NOTIFY STUDENTS / STAFFS
+            </label>
+
+            <div class="event-form-group">
+                <label>CALENDAR COLOR:</label>
+                <div class="color-swatch-row">
+                    <button type="button" class="color-swatch active" style="background:#f4511e;" data-color="#f4511e"></button>
+                    <button type="button" class="color-swatch" style="background:#33b679;" data-color="#33b679"></button>
+                    <button type="button" class="color-swatch" style="background:#3f51b5;" data-color="#3f51b5"></button>
+                    <button type="button" class="color-swatch" style="background:#e91e63;" data-color="#e91e63"></button>
+                    <button type="button" class="color-swatch" style="background:#fdd835;" data-color="#fdd835"></button>
+                    <button type="button" class="color-swatch" style="background:#00e5ff;" data-color="#00e5ff"></button>
+                    <button type="button" class="color-swatch" style="background:#ba00ff;" data-color="#ba00ff"></button>
+                    <button type="button" class="color-swatch" style="background:#ff9800;" data-color="#ff9800"></button>
+                    <button type="button" class="color-swatch" style="background:#8bc34a;" data-color="#8bc34a"></button>
+                    <button type="button" class="color-swatch" style="background:#1de9b6;" data-color="#1de9b6"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-modal-footer">
+            <button type="button" class="btn-modal-save" id="saveEventBtn"><i class="bi bi-save"></i> Save</button>
+            <button type="button" class="btn-modal-close" id="closeEventModalBtn">Close</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // ===== Sample BS calendar dataset =====
+            // Replace with an authoritative dataset (e.g. nepali-date-converter) for production accuracy.
+            const bsData = {
+                2081: [31, 31, 32, 31, 31, 31, 30, 30, 29, 30, 29, 31],
+                2082: [31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
+                2083: [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30],
+                2084: [30, 32, 31, 32, 31, 30, 30, 29, 30, 29, 30, 31],
+                2085: [31, 31, 32, 31, 31, 31, 29, 30, 29, 30, 29, 31]
+            };
+
+            const anchorBsYear = 2081, anchorBsMonth = 1;
+            const anchorAdDate = new Date(2024, 3, 13); // Baisakh 1, 2081 BS = April 13, 2024 AD
+
+            const nepaliDigits = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
+            function toNepaliNumber(num) {
+                return String(num).split('').map(d => nepaliDigits[parseInt(d)]).join('');
+            }
+
+            const monthNames = [
+                "बैशाख (APR/MAY)", "जेठ (MAY/JUN)", "असार (JUN/JUL)", "श्रावण (JUL/AUG)",
+                "भदौ (AUG/SEP)", "असोज (SEP/OCT)", "कार्तिक (OCT/NOV)", "मंसिर (NOV/DEC)",
+                "पौष (DEC/JAN)", "माघ (JAN/FEB)", "फागुन (FEB/MAR)", "चैत (MAR/APR)"
+            ];
+
+            const yearSelect = document.getElementById('bsYearSelect');
+            const monthSelect = document.getElementById('bsMonthSelect');
+            const grid = document.getElementById('bsCalendarGrid');
+
+            Object.keys(bsData).forEach(y => {
+                const opt = document.createElement('option');
+                opt.value = y;
+                opt.textContent = toNepaliNumber(y);
+                yearSelect.appendChild(opt);
+            });
+
+            monthNames.forEach((name, i) => {
+                const opt = document.createElement('option');
+                opt.value = i + 1;
+                opt.textContent = name;
+                monthSelect.appendChild(opt);
+            });
+
+            let currentBsYear = 2083;
+            let currentBsMonth = 4; // Shrawan
+
+            function daysBetweenBsStartAndTarget(targetYear, targetMonth) {
+                let totalDays = 0;
+                let y = anchorBsYear, m = anchorBsMonth;
+
+                while (!(y === targetYear && m === targetMonth)) {
+                    totalDays += bsData[y][m - 1];
+                    m++;
+                    if (m > 12) { m = 1; y++; }
+                    if (!bsData[y]) break;
+                }
+                return totalDays;
+            }
+
+            function getAdDateForBsMonthStart(bsYear, bsMonth) {
+                const offsetDays = daysBetweenBsStartAndTarget(bsYear, bsMonth);
+                const result = new Date(anchorAdDate);
+                result.setDate(result.getDate() + offsetDays);
+                return result;
+            }
+
+            // ===== Convert TODAY (AD) into current BS date, for defaulting the modal =====
+            function getTodayInBs() {
+                const today = new Date();
+                let y = anchorBsYear, m = anchorBsMonth;
+                let cursorDate = new Date(anchorAdDate);
+
+                while (bsData[y]) {
+                    const daysInThisMonth = bsData[y][m - 1];
+                    const monthEndDate = new Date(cursorDate);
+                    monthEndDate.setDate(monthEndDate.getDate() + daysInThisMonth);
+
+                    if (today >= cursorDate && today < monthEndDate) {
+                        const dayOfMonth = Math.floor((today - cursorDate) / (1000 * 60 * 60 * 24)) + 1;
+                        return { year: y, month: m, day: dayOfMonth };
+                    }
+
+                    cursorDate = monthEndDate;
+                    m++;
+                    if (m > 12) { m = 1; y++; }
+                }
+                // Fallback if today is outside the known bsData range
+                return { year: currentBsYear, month: currentBsMonth, day: 1 };
+            }
+
+            function formatBsDate(bsObj) {
+                const mm = String(bsObj.month).padStart(2, '0');
+                const dd = String(bsObj.day).padStart(2, '0');
+                return `${bsObj.year}-${mm}-${dd}`;
+            }
+
+            function renderBsCalendar(bsYear, bsMonth) {
+                if (!bsData[bsYear]) {
+                    grid.innerHTML = '<div class="no-data-cell" style="grid-column: 1 / -1; padding:40px;">No data for this year — extend the bsData table.</div>';
+                    return;
+                }
+
+                yearSelect.value = bsYear;
+                monthSelect.value = bsMonth;
+
+                const daysInMonth = bsData[bsYear][bsMonth - 1];
+                const adStartDate = getAdDateForBsMonthStart(bsYear, bsMonth);
+                const startWeekday = adStartDate.getDay();
+
+                let cellsHtml = '';
+
+                for (let i = 0; i < startWeekday; i++) {
+                    cellsHtml += '<div class="cal-cell cal-other-month"></div>';
+                }
+
+                for (let d = 1; d <= daysInMonth; d++) {
+                    const adDate = new Date(adStartDate);
+                    adDate.setDate(adDate.getDate() + (d - 1));
+
+                    const isToday = adDate.toDateString() === new Date().toDateString();
+
+                    cellsHtml += `<div class="cal-cell ${isToday ? 'cal-today' : ''}" data-bs-year="${bsYear}" data-bs-month="${bsMonth}" data-bs-day="${d}">
+                                <span class="bs-day-num">${toNepaliNumber(d)}</span>
+                                <span class="bs-ad-num">${adDate.getDate()}</span>
+                            </div>`;
+                }
+
+                grid.innerHTML = cellsHtml;
+            }
+
+            document.getElementById('bsPrev').addEventListener('click', () => {
+                currentBsMonth--;
+                if (currentBsMonth < 1) { currentBsMonth = 12; currentBsYear--; }
+                renderBsCalendar(currentBsYear, currentBsMonth);
+            });
+
+            document.getElementById('bsNext').addEventListener('click', () => {
+                currentBsMonth++;
+                if (currentBsMonth > 12) { currentBsMonth = 1; currentBsYear++; }
+                renderBsCalendar(currentBsYear, currentBsMonth);
+            });
+
+            yearSelect.addEventListener('change', () => {
+                currentBsYear = parseInt(yearSelect.value);
+                renderBsCalendar(currentBsYear, currentBsMonth);
+            });
+
+            monthSelect.addEventListener('change', () => {
+                currentBsMonth = parseInt(monthSelect.value);
+                renderBsCalendar(currentBsYear, currentBsMonth);
+            });
+
+            renderBsCalendar(currentBsYear, currentBsMonth);
+
+            // ===== New Event Modal (BS dates) =====
+            const newEventModal = document.getElementById('newEventModal');
+            const openEventModalBtn = document.getElementById('openEventModalBtn');
+            const closeEventModalX = document.getElementById('closeEventModalX');
+            const closeEventModalBtn = document.getElementById('closeEventModalBtn');
+            const saveEventBtn = document.getElementById('saveEventBtn');
+            const eventStartDateBs = document.getElementById('eventStartDateBs');
+            const eventEndDateBs = document.getElementById('eventEndDateBs');
+
+            function openEventModal() {
+                const todayBs = getTodayInBs();
+                const formatted = formatBsDate(todayBs);
+                eventStartDateBs.value = formatted;
+                eventEndDateBs.value = formatted;
+                newEventModal.style.display = 'flex';
+            }
+
+            function closeEventModal() {
+                newEventModal.style.display = 'none';
+                document.getElementById('eventTitle').value = '';
+                document.getElementById('eventDescription').value = '';
+                document.getElementById('notifyCheckbox').checked = false;
+            }
+
+            openEventModalBtn.addEventListener('click', openEventModal);
+            closeEventModalX.addEventListener('click', closeEventModal);
+            closeEventModalBtn.addEventListener('click', closeEventModal);
+
+            newEventModal.addEventListener('click', function(e) {
+                if (e.target === newEventModal) closeEventModal();
+            });
+
+            document.querySelectorAll('.color-swatch').forEach(swatch => {
+                swatch.addEventListener('click', function() {
+                    document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            saveEventBtn.addEventListener('click', function() {
+                const title = document.getElementById('eventTitle').value.trim();
+                if (!title) {
+                    alert('Please enter an event name.');
+                    return;
+                }
+                console.log('Event saved:', {
+                    title: title,
+                    description: document.getElementById('eventDescription').value,
+                    startDateBs: eventStartDateBs.value,
+                    endDateBs: eventEndDateBs.value,
+                    notify: document.getElementById('notifyCheckbox').checked,
+                    color: document.querySelector('.color-swatch.active').dataset.color
+                });
+                closeEventModal();
+            });
+
+            // Clicking a day cell on the BS calendar pre-fills the start/end date in the modal
+            grid.addEventListener('click', function(e) {
+                const cell = e.target.closest('.cal-cell[data-bs-year]');
+                if (!cell) return;
+                const formatted = `${cell.dataset.bsYear}-${String(cell.dataset.bsMonth).padStart(2, '0')}-${String(cell.dataset.bsDay).padStart(2, '0')}`;
+                eventStartDateBs.value = formatted;
+                eventEndDateBs.value = formatted;
+                newEventModal.style.display = 'flex';
+                document.getElementById('eventTitle').value = '';
+                document.getElementById('eventDescription').value = '';
+            });
+        });
+    </script>
+}

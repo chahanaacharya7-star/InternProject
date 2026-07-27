@@ -63,18 +63,5 @@
     "AcademicIncharge": "Aayushi Rai",
     "Status": "ACTIVE",
     "DisplayOrder": 2
-  },
-  {
-    "Id": 6,
-    "ProgramName": "multitasking agency",
-    "ProgramCode": "002",
-    "StudentLimit": 12,
-    "ProgramType": "Semester Program",
-    "DataAccessGroup": "Educational Institutes",
-    "Level": "General",
-    "Faculty": "Science",
-    "AcademicIncharge": "",
-    "Status": "ACTIVE",
-    "DisplayOrder": 122
   }
 ]

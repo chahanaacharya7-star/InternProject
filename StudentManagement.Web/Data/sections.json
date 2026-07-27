@@ -1,7 +1,7 @@
 [
   {
     "Id": 1,
-    "SectionName": "81MM-CSM",
+    "SectionName": "Sagarmatha",
     "Remarks": "",
     "Status": "ACTIVE"
   },
@@ -13,13 +13,13 @@
   },
   {
     "Id": 3,
-    "SectionName": "Alpha",
+    "SectionName": "Annapurna",
     "Remarks": "a",
     "Status": "ACTIVE"
   },
   {
     "Id": 4,
-    "SectionName": "Annapurna",
+    "SectionName": "Lily",
     "Remarks": "test",
     "Status": "ACTIVE"
   },
@@ -37,19 +37,13 @@
   },
   {
     "Id": 7,
-    "SectionName": "BIBEK",
+    "SectionName": "Rose",
     "Remarks": "",
     "Status": "ACTIVE"
   },
   {
     "Id": 8,
-    "SectionName": "BlueA",
-    "Remarks": "",
-    "Status": "ACTIVE"
-  },
-  {
-    "Id": 9,
-    "SectionName": "Dell",
+    "SectionName": "Marigold",
     "Remarks": "",
     "Status": "ACTIVE"
   }

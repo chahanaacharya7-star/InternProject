@@ -1549,3 +1549,225 @@ body {
         width: 100%;
     }
 }
+
+
+
+/* BS Calendar */
+
+/* ===== BS Calendar ===== */
+.bs-grid-header div {
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.bs-grid-header span {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.bs-day-num {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-main);
+    display: block;
+}
+
+.bs-ad-num {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: block;
+    margin-top: auto;
+    padding-top: 30px;
+}
+
+.bs-calendar-grid .cal-cell {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Add New Event on Calendar */
+/* ===== New Event Modal ===== */
+.event-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-modal-box {
+    background: var(--bg-card);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 620px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.event-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+    .event-modal-header h3 {
+        font-size: 22px;
+        font-weight: 500;
+        color: var(--text-muted);
+        margin: 0;
+    }
+
+.event-modal-close {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+    .event-modal-close:hover {
+        color: var(--text-main);
+    }
+
+.event-modal-body {
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+    .event-form-group label {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--text-muted);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+.required-star {
+    color: #ef4444;
+    margin-left: 2px;
+}
+
+.event-form-input, .event-form-textarea {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: var(--text-main);
+    background: var(--bg-card);
+    outline: none;
+    width: 100%;
+}
+
+    .event-form-input:focus, .event-form-textarea:focus {
+        border-color: var(--accent-purple);
+        box-shadow: 0 0 0 2px rgba(108,43,217,0.15);
+    }
+
+.event-form-textarea {
+    resize: vertical;
+    font-family: inherit;
+}
+
+.event-form-row {
+    display: flex;
+    gap: 20px;
+}
+
+    .event-form-row .event-form-group {
+        flex: 1;
+    }
+
+.event-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    letter-spacing: 0.3px;
+    cursor: pointer;
+}
+
+    .event-checkbox-label input {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+    }
+
+.color-swatch-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.color-swatch {
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+    .color-swatch.active {
+        box-shadow: 0 0 0 3px var(--bg-card), 0 0 0 5px var(--accent-purple);
+    }
+
+.event-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 18px 28px;
+    border-top: 1px solid var(--border-color);
+}
+
+.btn-modal-save {
+    background: var(--accent-purple);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+    .btn-modal-save:hover {
+        background: #5a23b8;
+    }
+
+.btn-modal-close {
+    background: #64748b;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+    .btn-modal-close:hover {
+        background: #475569;
+    }

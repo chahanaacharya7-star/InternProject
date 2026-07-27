@@ -8,49 +8,49 @@
   },
   {
     "Id": 2,
-    "SemesterName": "None",
+    "SemesterName": "General",
     "Remarks": "",
     "Status": "ACTIVE",
-    "ProgramType": "Multi Yearly Program"
+    "ProgramType": "Yearly Program"
   },
   {
     "Id": 3,
-    "SemesterName": "Non",
+    "SemesterName": "2nd Semester",
     "Remarks": "",
     "Status": "ACTIVE",
     "ProgramType": "Multi Yearly Program"
   },
   {
     "Id": 4,
-    "SemesterName": "k xa semester",
-    "Remarks": "asdasdasdasd",
+    "SemesterName": "3rd Semester",
+    "Remarks": "",
     "Status": "INACTIVE",
     "ProgramType": "Multi Yearly Program"
   },
   {
     "Id": 5,
-    "SemesterName": "k xa semester",
+    "SemesterName": "4th Semester",
     "Remarks": "",
     "Status": "ACTIVE",
     "ProgramType": "Multi Yearly Program"
   },
   {
     "Id": 6,
-    "SemesterName": "1st Year",
+    "SemesterName": "5th Semester",
     "Remarks": "",
     "Status": "ACTIVE",
     "ProgramType": "Multi Yearly Program"
   },
   {
     "Id": 7,
-    "SemesterName": "2nd Year",
+    "SemesterName": "6th Semester",
     "Remarks": "",
     "Status": "ACTIVE",
     "ProgramType": "Multi Yearly Program"
   },
   {
     "Id": 8,
-    "SemesterName": "3rd Year",
+    "SemesterName": "7th Semester",
     "Remarks": "",
     "Status": "ACTIVE",
     "ProgramType": "Multi Yearly Program"

@@ -19,7 +19,7 @@
   },
   {
     "Id": 4,
-    "FacultyName": "BSC.CSIT(2083)",
+    "FacultyName": "BIT",
     "Remarks": "",
     "Status": "ACTIVE"
   },
@@ -37,13 +37,13 @@
   },
   {
     "Id": 7,
-    "FacultyName": "Education",
+    "FacultyName": "Management",
     "Remarks": "",
     "Status": "ACTIVE"
   },
   {
     "Id": 8,
-    "FacultyName": "Education",
+    "FacultyName": "Hotel Management",
     "Remarks": "",
     "Status": "ACTIVE"
   },

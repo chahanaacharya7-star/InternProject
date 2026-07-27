@@ -20,7 +20,7 @@
                 </select>
             </div>
 
-            <button type="button" class="btn-add-new" style="width:100%; justify-content:center; margin-top:8px;">
+            <button type="button" class="btn-add-new" id="openEventModalBtn" style="width:100%; justify-content:center; margin-top:8px;">
                 <i class="bi bi-plus-lg"></i> Add New Event
             </button>
         </div>
@@ -47,6 +47,65 @@
             </div>
 
             <div id="calendarGrid" class="calendar-grid"></div>
+        </div>
+    </div>
+</div>
+
+<!-- New Event Modal -->
+<div id="newEventModal" class="event-modal-overlay" style="display:none;">
+    <div class="event-modal-box">
+        <div class="event-modal-header">
+            <h3>New Event</h3>
+            <button type="button" class="event-modal-close" id="closeEventModalX"><i class="bi bi-x-lg"></i></button>
+        </div>
+
+        <div class="event-modal-body">
+            <div class="event-form-group">
+                <label>EVENT</label>
+                <input type="text" id="eventTitle" class="event-form-input" />
+            </div>
+
+            <div class="event-form-group">
+                <label>DESCRIPTION</label>
+                <textarea id="eventDescription" class="event-form-textarea" rows="3"></textarea>
+            </div>
+
+            <div class="event-form-row">
+                <div class="event-form-group">
+                    <label>START DATE<span class="required-star">*</span></label>
+                    <input type="date" id="eventStartDate" class="event-form-input" />
+                </div>
+                <div class="event-form-group">
+                    <label>END DATE<span class="required-star">*</span></label>
+                    <input type="date" id="eventEndDate" class="event-form-input" />
+                </div>
+            </div>
+
+            <label class="event-checkbox-label">
+                <input type="checkbox" id="notifyCheckbox" />
+                NOTIFY STUDENTS / STAFFS
+            </label>
+
+            <div class="event-form-group">
+                <label>CALENDAR COLOR:</label>
+                <div class="color-swatch-row">
+                    <button type="button" class="color-swatch active" style="background:#f4511e;" data-color="#f4511e"></button>
+                    <button type="button" class="color-swatch" style="background:#33b679;" data-color="#33b679"></button>
+                    <button type="button" class="color-swatch" style="background:#3f51b5;" data-color="#3f51b5"></button>
+                    <button type="button" class="color-swatch" style="background:#e91e63;" data-color="#e91e63"></button>
+                    <button type="button" class="color-swatch" style="background:#fdd835;" data-color="#fdd835"></button>
+                    <button type="button" class="color-swatch" style="background:#00e5ff;" data-color="#00e5ff"></button>
+                    <button type="button" class="color-swatch" style="background:#ba00ff;" data-color="#ba00ff"></button>
+                    <button type="button" class="color-swatch" style="background:#ff9800;" data-color="#ff9800"></button>
+                    <button type="button" class="color-swatch" style="background:#8bc34a;" data-color="#8bc34a"></button>
+                    <button type="button" class="color-swatch" style="background:#1de9b6;" data-color="#1de9b6"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-modal-footer">
+            <button type="button" class="btn-modal-save" id="saveEventBtn"><i class="bi bi-save"></i> Save</button>
+            <button type="button" class="btn-modal-close" id="closeEventModalBtn">Close</button>
         </div>
     </div>
 </div>
@@ -95,8 +154,8 @@
                     const isToday = isCurrentMonth && dayNum === today.getDate() && otherMonthClass === '';
 
                     cellsHtml += `<div class="cal-cell ${otherMonthClass} ${isToday ? 'cal-today' : ''}">
-                        <span class="cal-day-num">${dayLabel}</span>
-                    </div>`;
+                                <span class="cal-day-num">${dayLabel}</span>
+                            </div>`;
                 }
 
                 calendarGrid.innerHTML = cellsHtml;
@@ -125,6 +184,61 @@
             });
 
             renderCalendar(currentDate);
+
+            // ===== New Event Modal =====
+            const newEventModal = document.getElementById('newEventModal');
+            const openEventModalBtn = document.getElementById('openEventModalBtn');
+            const closeEventModalX = document.getElementById('closeEventModalX');
+            const closeEventModalBtn = document.getElementById('closeEventModalBtn');
+            const saveEventBtn = document.getElementById('saveEventBtn');
+            const eventStartDate = document.getElementById('eventStartDate');
+            const eventEndDate = document.getElementById('eventEndDate');
+
+            function openEventModal() {
+                const todayStr = new Date().toISOString().split('T')[0];
+                eventStartDate.value = todayStr;
+                eventEndDate.value = todayStr;
+                newEventModal.style.display = 'flex';
+            }
+
+            function closeEventModal() {
+                newEventModal.style.display = 'none';
+                document.getElementById('eventTitle').value = '';
+                document.getElementById('eventDescription').value = '';
+                document.getElementById('notifyCheckbox').checked = false;
+            }
+
+            openEventModalBtn.addEventListener('click', openEventModal);
+            closeEventModalX.addEventListener('click', closeEventModal);
+            closeEventModalBtn.addEventListener('click', closeEventModal);
+
+            newEventModal.addEventListener('click', function(e) {
+                if (e.target === newEventModal) closeEventModal();
+            });
+
+            document.querySelectorAll('.color-swatch').forEach(swatch => {
+                swatch.addEventListener('click', function() {
+                    document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            saveEventBtn.addEventListener('click', function() {
+                const title = document.getElementById('eventTitle').value.trim();
+                if (!title) {
+                    alert('Please enter an event name.');
+                    return;
+                }
+                console.log('Event saved:', {
+                    title: title,
+                    description: document.getElementById('eventDescription').value,
+                    startDate: eventStartDate.value,
+                    endDate: eventEndDate.value,
+                    notify: document.getElementById('notifyCheckbox').checked,
+                    color: document.querySelector('.color-swatch.active').dataset.color
+                });
+                closeEventModal();
+            });
         });
     </script>
 }

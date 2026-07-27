@@ -37,5 +37,10 @@ namespace StudentManagement.Web.Controllers
         {
             return View();
         }
+
+        public IActionResult BsCalendar()
+        {
+            return View();
+        }
     }
 }
