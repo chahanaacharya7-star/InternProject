@@ -42,5 +42,12 @@ namespace StudentManagement.Web.Controllers
         {
             return View();
         }
+
+        public IActionResult ClassTeacherAssignment()
+        {
+            // Populate batch dropdown from existing batches data
+            ViewBag.Batches = _academicSetupService.GetBatches();
+            return View();
+        }
     }
 }

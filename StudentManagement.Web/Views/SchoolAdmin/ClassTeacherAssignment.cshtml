@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Class Teacher Assignment";
+    var batches = ViewBag.Batches as List<StudentManagement.Web.Models.Batch>;
+}
+
+<div class="page-content page-content-spaced">
+    <div class="login-mgmt-card">
+        <h2 class="login-mgmt-title">Class Teacher Assignment</h2>
+
+        <div class="cta-filters">
+            <div class="filter-group">
+                <label>BATCH<span class="required-star">*</span></label>
+                <select id="batchSelect" class="filter-select cta-select-error">
+                    <option value="">--Select--</option>
+                    @if (batches != null)
+                    {
+                        @foreach (var b in batches)
+                        {
+                            <option value="@b.Id">@b.BatchName - @b.ProgramName</option>
+                        }
+                    }
+                </select>
+                <span id="batchError" class="cta-error-text">Batch is required</span>
+            </div>
+
+            <div class="filter-group">
+                <label>SEMESTER<span class="required-star">*</span></label>
+                <select id="semesterSelect" class="filter-select">
+                    <option value="">--Select--</option>
+                </select>
+            </div>
+
+            <button type="button" id="searchBtn" class="btn-search" style="align-self:flex-end;">Search</button>
+        </div>
+
+        <div id="resultsArea" class="cta-results-area" style="display:none;">
+            <div class="table-scroll">
+                <table class="login-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Class Teacher</th>
+                            <th style="text-align:right;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody">
+                        <tr><td colspan="3" class="no-data-cell">No data</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const batchSelect = document.getElementById('batchSelect');
+            const semesterSelect = document.getElementById('semesterSelect');
+            const batchError = document.getElementById('batchError');
+            const searchBtn = document.getElementById('searchBtn');
+            const resultsArea = document.getElementById('resultsArea');
+
+            // Show validation error only after user interacts / tries to search, matching reference behavior
+            batchError.style.display = 'block';
+
+            batchSelect.addEventListener('change', function() {
+                if (this.value) {
+                    batchError.style.display = 'none';
+                    batchSelect.classList.remove('cta-select-error');
+                } else {
+                    batchError.style.display = 'block';
+                    batchSelect.classList.add('cta-select-error');
+                }
+            });
+
+            searchBtn.addEventListener('click', function() {
+                if (!batchSelect.value) {
+                    batchError.style.display = 'block';
+                    batchSelect.classList.add('cta-select-error');
+                    resultsArea.style.display = 'none';
+                    return;
+                }
+                if (!semesterSelect.value) {
+                    alert('Please select a semester.');
+                    return;
+                }
+
+                // Placeholder — later wire this to an actual AJAX call to load sections/teachers for the selected batch+semester
+                resultsArea.style.display = 'block';
+            });
+        });
+    </script>
+}

@@ -1771,3 +1771,28 @@ body {
     .btn-modal-close:hover {
         background: #475569;
     }
+
+/* ASSIGN CLASS TEACHER*/
+
+/* ===== Class Teacher Assignment ===== */
+.cta-filters {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.cta-select-error {
+    border-color: #ef4444 !important;
+}
+
+.cta-error-text {
+    display: none;
+    color: #ef4444;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.cta-results-area {
+    margin-top: 28px;
+}
